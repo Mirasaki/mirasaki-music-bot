@@ -1,0 +1,11 @@
+{
+  "line-length": false,
+  "no-inline-html": {
+    "allowed_elements": [
+      "div",
+      "h2",
+      "h3",
+      "h4"
+    ]
+  }
+}

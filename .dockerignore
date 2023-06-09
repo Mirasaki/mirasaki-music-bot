@@ -1,0 +1,37 @@
+# Config
+.env
+*.env
+Procfile
+release.config.js
+
+# NPM & dependencies
+node_modules
+npm-debug.log
+.cache
+
+# Ignoring all markdown files
+*.md
+
+# Github
+.git
+.github
+.gitattributes
+.gitignore
+.gitkeep
+
+# Docker
+Dockerfile
+*.Dockerfile
+docker-compose.yml
+
+# Linter files
+.markdownlint.json
+.eslintrc.json
+
+# Etc
+LICENSE
+linter-output.txt
+.env.example
+# .config.example.js used as fallback in test script
+tsconfig.json # Only used to generate types in development
+typings.d.ts # exported typings file

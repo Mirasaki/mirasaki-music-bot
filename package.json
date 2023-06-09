@@ -1,0 +1,97 @@
+{
+  "name": "discord.js-bot-template",
+  "description": "A discord bot template using discord.js",
+  "version": "3.3.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon run node --trace-warnings .",
+    "test": "node . mode=test",
+    "commit": "cz",
+    "docker:build": "docker build --tag discord-bot-template .",
+    "docker:shell": "docker run -it --rm discord-bot-template sh",
+    "docker:start": "docker run -it -p 3000:3000 --env-file ./.env -d --name discord-bot-template discord-bot-template",
+    "docker:restart": "docker restart discord-bot-template",
+    "docker:stop": "docker stop discord-bot-template",
+    "docker:kill": "docker rm -f discord-bot-template",
+    "docker:purge": "docker rm -fv discord-bot-template",
+    "docker:logs": "docker logs discord-bot-template -f",
+    "docker:image": "docker image tag discord-bot-template mirasaki/discord-bot-template",
+    "docker:push": "docker push mirasaki/discord-bot-template",
+    "docker:update": "git pull && npm install && npm run docker:stop && npm run docker:kill && npm run docker:build && npm run docker:start",
+    "docker:dev:build": "docker build --tag discord-bot-template-dev -f development.Dockerfile .",
+    "docker:dev:start": "docker run -it --rm -v $(pwd):/app -v /app/node_modules -p 3000:3000 -p 9229:9229 -w /app discord-bot-template-dev",
+    "pm2:start": "pm2 start --name=discord.js-bot-template npm -- run start",
+    "pm2:stop": "pm2 stop discord.js-bot-template",
+    "pm2:purge": "pm2 stop discord.js-bot-template && pm2 delete discord.js-bot-template && pm2 reset discord.js-bot-template",
+    "pm2:logs": "pm2 logs --lines 300 discord.js-bot-template",
+    "pm2:logsError": "pm2 logs --err --lines 300 discord.js-bot-template",
+    "lint": "eslint src",
+    "linter": "eslint src --fix",
+    "writeLinter": "eslint src --output-file linter-output.txt",
+    "docs": "jsdoc -u ./tutorials --readme README.md -c jsdoc.json",
+    "types": "npx -p typescript tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir types"
+  },
+  "dependencies": {
+    "@discordjs/rest": "^1.7.0",
+    "@mirasaki/logger": "^1.0.5",
+    "common-tags": "^1.8.2",
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.1.4"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^10.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^9.0.2",
+    "@semantic-release/npm": "^10.0.3",
+    "@semantic-release/release-notes-generator": "^11.0.2",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "docdash": "^2.0.1",
+    "eslint": "^8.42.0",
+    "eslint-plugin-sonarjs": "^0.19.0",
+    "jsdoc": "^4.0.2",
+    "jsdoc-to-markdown": "^8.0.0",
+    "nodemon": "^2.0.22",
+    "semantic-release": "^21.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mirasaki/discord.js-bot-template.git"
+  },
+  "keywords": [
+    "nodejs",
+    "bot-template",
+    "template",
+    "boilerplate",
+    "discord-api",
+    "typings",
+    "discord",
+    "discordjs",
+    "v14",
+    "discord-bot",
+    "discord-bot-template",
+    "slash-commands",
+    "buttons",
+    "modals",
+    "autocomplete",
+    "context-menus",
+    "select-menus",
+    "documented"
+  ],
+  "author": "Richard Hillebrand (Mirasaki)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mirasaki/discord.js-bot-template/issues"
+  },
+  "homepage": "https://github.com/Mirasaki/discord.js-bot-template#readme",
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

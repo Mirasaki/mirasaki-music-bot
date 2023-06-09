@@ -1,0 +1,59 @@
+{
+  "source": {
+    "include": [
+      "src/classes",
+      "src/handlers",
+      "src/client.js",
+      "src/util.js"
+    ],
+    "includePattern": ".js$",
+    "excludePattern": "(node_modules/|docs)"
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true
+  },
+  "opts": {
+    "recurse": true,
+    "destination": "./docs/",
+    "template": "node_modules/docdash"
+  },
+  "docdash": {
+    "static": true,
+    "sort": true,
+    "sectionOrder": [
+      "Modules",
+      "Classes",
+      "Events",
+      "Namespaces",
+      "Mixins",
+      "Interfaces",
+      "Tutorials",
+      "Externals"
+    ],
+    "search": true,
+    "collapse": true,
+    "typedefs": true,
+    "removeQuotes": "none",
+    "scripts": [],
+    "menu":{
+      "Github repo": {
+        "href": "https://github.com/Mirasaki/discord.js-bot-template",
+        "target":"_blank",
+        "class":"menu-item",
+        "id":"repository"
+      },
+      "API Documentation": {
+        "href": "/tutorial-api-docs",
+        "class": "menu-item",
+        "id": "api-documentation"
+      },
+      "Contact": {
+        "href": "https://mirasaki.dev",
+        "class": "menu-item",
+        "id": "contact"
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  # Dispatch manually
+  workflow_dispatch:
+
+jobs:
+  release:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify-finish:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord Webhook - Notify Finish Release
+        uses: tsickert/discord-webhook@v5.3.0
+        with:
+          webhook-url: ${{ secrets.GH_RELEASE_WEBHOOK_URL }}
+          content: "<@&975346074560634940>, a new version was just **released** - go check it out: [here](<${{ github.server_url }}/${{ github.repository }}/releases/latest>)"
