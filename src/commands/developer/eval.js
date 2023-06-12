@@ -7,6 +7,7 @@ const { ChatInputCommand } = require('../../classes/Commands');
 const { EVAL_CODE_MODAL, EVAL_CODE_INPUT } = require('../../constants');
 
 module.exports = new ChatInputCommand({
+  enabled: process.env.NODE_ENV !== 'production',
   permLevel: 'Developer',
   clientPerms: [ 'EmbedLinks', 'AttachFiles' ],
   data: { description: 'Evaluate arbitrary JavaScript code' },

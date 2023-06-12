@@ -5,11 +5,24 @@ const chalk = require('chalk');
 const {
   Client, GatewayIntentBits, ActivityType, PresenceUpdateStatus
 } = require('discord.js');
+const { Player } = require('discord-player');
+const {
+  SpotifyExtractor,
+  SoundCloudExtractor,
+  YouTubeExtractor,
+  AttachmentExtractor,
+  AppleMusicExtractor,
+  VimeoExtractor,
+  ReverbnationExtractor
+} = require('@discord-player/extractor');
 
 // Argv
 const modeArg = process.argv.find((arg) => arg.startsWith('mode='));
 
 // Local imports
+// Initialize database as early as possible
+// Before registering any commands or listeners
+require('./modules/db');
 const pkg = require('../package');
 const { clearApplicationCommandData, refreshSlashCommandData } = require('./handlers/commands');
 const {
@@ -18,6 +31,7 @@ const {
 const config = clientConfig;
 const path = require('path');
 const clientExtensions = require('./client');
+const { saveDb } = require('./modules/db');
 
 // Clear the console in non-production modes & print vanity
 process.env.NODE_ENV !== 'production' && console.clear();
@@ -26,7 +40,11 @@ logger.info(`${ chalk.greenBright.underline(packageIdentifierStr) } by ${ chalk.
 
 // Initializing/declaring our variables
 const initTimerStart = process.hrtime.bigint();
-const intents = config.intents.map((intent) => GatewayIntentBits[intent]);
+const intents = [
+  GatewayIntentBits.Guilds,
+  GatewayIntentBits.GuildVoiceStates,
+  GatewayIntentBits.GuildMessages
+];
 const presenceActivityMap = config.presence.activities.map(
   (act) => ({
     ...act, type: ActivityType[titleCase(act.type)]
@@ -35,12 +53,16 @@ const presenceActivityMap = config.presence.activities.map(
 
 // Building our discord.js client
 const client = new Client({
-  intents: intents,
+  intents,
   presence: {
     status: PresenceUpdateStatus[config.presence.status] || PresenceUpdateStatus['online'],
     activities: presenceActivityMap
   }
 });
+
+// Discord Music Player
+const player = new Player(client);
+require('./music-player')(player);
 
 // Destructuring from env
 const {
@@ -60,7 +82,9 @@ const {
 
 // Listen for user requested shutdown
 process.on('SIGINT', () => {
-  logger.info('\nGracefully shutting down from SIGINT (Ctrl-C)');
+  logger.info('\nReceived SIGINT (Ctrl-C), saving database...');
+  saveDb();
+  logger.info('Gracefully shutting down from SIGINT (Ctrl-C)');
   process.exit(0);
 });
 
@@ -245,5 +269,19 @@ if (USE_API === 'true') require('./server/');
 // Exit before initializing listeners in test mode
 if (modeArg && modeArg.endsWith('test')) process.exit(1);
 
-// Logging in to our client
-client.login(DISCORD_BOT_TOKEN);
+(async () => {
+  // If you don't want to use all of the extractors and register only the required ones manually, use
+  if (clientConfig.plugins.soundCloud === true) await player.extractors.register(SoundCloudExtractor, {});
+  if (clientConfig.plugins.youtube === true) await player.extractors.register(YouTubeExtractor, {});
+  if (clientConfig.plugins.spotify) await player.extractors.register(
+    SpotifyExtractor,
+    clientConfig.plugins.spotify ?? {}
+  );
+  if (clientConfig.plugins.fileAttachments === true) await player.extractors.register(AttachmentExtractor, {});
+  if (clientConfig.plugins.appleMusic === true) await player.extractors.register(AppleMusicExtractor, {});
+  if (clientConfig.plugins.vimeo === true) await player.extractors.register(VimeoExtractor, {});
+  if (clientConfig.plugins.reverbNation === true) await player.extractors.register(ReverbnationExtractor, {});
+
+  // Logging in to our client
+  client.login(DISCORD_BOT_TOKEN);
+})();

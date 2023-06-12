@@ -56,7 +56,6 @@ const SelectMenus = new Collection();
 
 /**
  * @typedef {Object} ClientConfiguration
- * @property {Array<external:DiscordGatewayIntentBits>} intents Required gateway intents
  * @property {module:Client~ClientConfigPresence} presence Client presence configuration
  * @property {module:Client~ClientConfigPermissions} permissions Internal permission configuration
  * @property {string} supportServerInviteLink The link to the Discord server where bot support is offered

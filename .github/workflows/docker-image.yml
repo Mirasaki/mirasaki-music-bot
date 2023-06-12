@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag discord-bot-template:$(date +%s)
+      run: docker build . --file Dockerfile --tag mirasaki-music-bot:$(date +%s)
