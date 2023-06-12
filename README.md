@@ -8,7 +8,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Docker Pulls](https://img.shields.io/docker/pulls/mirasaki/mirasaki-music-bot)
 ![version](https://img.shields.io/github/v/release/Mirasaki/mirasaki-music-bot)
-<!-- ![size](https://img.shields.io/docker/image-size/mirasaki/mirasaki-music-bot) -->
 
 </div>
 <p align="center">
