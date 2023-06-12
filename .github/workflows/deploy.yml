@@ -35,11 +35,11 @@ jobs:
             source ~/.nvm/nvm.sh
             cd ~/node/discord/mirasaki-music-bot
 
-            pm2 stop mirasaki-music-bot
+            pm2 stop music-bot
             git pull origin main
             npm ci
 
-            pm2 restart mirasaki-music-bot
+            pm2 restart music-bot
   notify-finish:
     needs: deploy
     runs-on: ubuntu-latest
