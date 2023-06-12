@@ -125,4 +125,5 @@ typings.d.ts
 *.db
 *.db~
 
+# Development todo list
 TODO
