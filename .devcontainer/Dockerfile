@@ -1,8 +1,11 @@
-FROM node:19-alpine
+FROM node:19
 
 # Create app/working/bot directory
 RUN mkdir -p /app
 WORKDIR /app
+
+# Before installing ytdl mod, install ffmpeg
+RUN apt-get update && apt-get install 'ffmpeg' -y
 
 # Install app development dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied

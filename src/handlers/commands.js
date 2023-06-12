@@ -66,7 +66,7 @@ const {
 // Destructure from process.env
 const {
   DISCORD_BOT_TOKEN,
-  CLIENT_ID,
+  DISCORD_CLIENT_ID,
   TEST_SERVER_GUILD_ID,
   REFRESH_SLASH_COMMAND_API_DATA,
   DEBUG_SLASH_COMMAND_API_DATA,
@@ -85,9 +85,9 @@ const rest = new REST({ version: '10' })
  */
 const clearApplicationCommandData = () => {
   logger.info('Clearing ApplicationCommand API data');
-  rest.put(Routes.applicationCommands(CLIENT_ID), { body: [] });
+  rest.put(Routes.applicationCommands(DISCORD_CLIENT_ID), { body: [] });
   rest.put(
-    Routes.applicationGuildCommands(CLIENT_ID, TEST_SERVER_GUILD_ID),
+    Routes.applicationGuildCommands(DISCORD_CLIENT_ID, TEST_SERVER_GUILD_ID),
     { body: [] }
   )
     .catch((err) => {
@@ -209,7 +209,7 @@ const registerGlobalCommands = async (client) => {
 
   // Sending the global command data
   return await rest.put(
-    Routes.applicationCommands(CLIENT_ID),
+    Routes.applicationCommands(DISCORD_CLIENT_ID),
     { body: globalCommandData }
   ).catch((err) => {
     // Invalid Form Body error
@@ -260,7 +260,7 @@ const registerTestServerCommands = async (client) => {
   // Sending the test server command data
   return await rest.put(
     Routes.applicationGuildCommands(
-      CLIENT_ID,
+      DISCORD_CLIENT_ID,
       TEST_SERVER_GUILD_ID
     ),
     { body: testServerCommandData }
@@ -304,7 +304,7 @@ const refreshSlashCommandData = (client) => {
 
     // Handle our different cmd config setups
     registerGlobalCommands(client);
-    registerTestServerCommands(client);
+    if (TEST_SERVER_GUILD_ID) registerTestServerCommands(client);
     logger.endLog(`Refreshing Application ${ chalk.white('(/)') } Commands.`);
   }
   catch (error) {

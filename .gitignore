@@ -120,3 +120,9 @@ TODO.md
 
 # In-development, Intellisense for events/listeners
 typings.d.ts
+
+# DB and db save
+*.db
+*.db~
+
+TODO

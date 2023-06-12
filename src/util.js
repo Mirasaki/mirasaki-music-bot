@@ -10,7 +10,14 @@
  */
 
 // Importing from libraries
-const { OAuth2Scopes, PermissionFlagsBits } = require('discord.js');
+const {
+  OAuth2Scopes,
+  PermissionFlagsBits,
+  ComponentType,
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle
+} = require('discord.js');
 const {
   readdirSync, statSync, existsSync
 } = require('fs');
@@ -30,6 +37,7 @@ const {
   MS_IN_ONE_SECOND
 } = require('./constants');
 const { validPermValues } = require('./handlers/permissions');
+const emojis = require('./config/emojis.json');
 
 // Resolve client configuration
 const modeArg = process.argv.find((arg) => arg.startsWith('mode='));
@@ -218,6 +226,157 @@ const msToHumanReadableTime = (ms) => {
   }
 };
 
+const isAllowedContentType = (valid, received) => {
+  return {
+    strict: valid === received,
+    fuzzy: received.startsWith(valid.split('/')[0])
+  };
+};
+
+const handlePaginationButtons = (i, componentMember, pageNow, prevCustomId, nextCustomId, usableEmbeds) => {
+  // Wrong user
+  if (i.user.id !== componentMember.user.id) {
+    i.reply({
+      content: `${ emojis.error } ${ i.user }, this component isn't meant for you, initialize it yourself by using \`/queue\` - this action has been cancelled`,
+      ephemeral: true
+    });
+    return false;
+  }
+
+  // Prev Button - Check bounds
+  else if (
+    i.customId === prevCustomId
+    && pageNow === 1
+  ) {
+    i.reply({
+      content: `${ emojis.error } ${ i.user }, you're on the first page, this action has been cancelled`,
+      ephemeral: true
+    });
+    return false;
+  }
+
+  // Next - Check bounds
+  else if (
+    i.customId === nextCustomId
+    && pageNow === usableEmbeds.length
+  ) {
+    i.reply({
+      content: `${ emojis.error } ${ componentMember }, you're already viewing the last page, this action has been cancelled`,
+      ephemeral: true
+    });
+    return false;
+  }
+
+  // Passed checks
+  return true;
+};
+
+const dynamicInteractionReplyFn = (interaction, shouldFollowUpIfReplied = false) => {
+  const interactionWasAcknowledged = interaction.deferred || interaction.replied;
+  return interactionWasAcknowledged
+    ? shouldFollowUpIfReplied
+      ? interaction.followUp
+      : interaction.editReply
+    : interaction.reply;
+};
+
+const handlePagination = async (
+  interaction,
+  member,
+  usableEmbeds,
+  activeDurationMs = MS_IN_ONE_MINUTE * 3,
+  shouldFollowUpIfReplied = false
+) => {
+  let pageNow = 1;
+  const prevCustomId = `@page-prev@${ member.id }@${ Date.now() }`;
+  const nextCustomId = `@page-next@${ member.id }@${ Date.now() }`;
+
+  const initialCtx = {
+    embeds: [ usableEmbeds[pageNow - 1] ],
+    components: getPaginationComponents(pageNow, usableEmbeds.length, prevCustomId, nextCustomId),
+    fetchReply: true
+  };
+  const replyFunction = dynamicInteractionReplyFn(interaction, shouldFollowUpIfReplied);
+  const interactionMessage = await replyFunction
+    .call(interaction, initialCtx)
+    .catch((err) => {
+      logger.syserr('Error encountered while responding to interaction with dynamic reply function:');
+      console.dir({
+        pageNow,
+        prevCustomId,
+        nextCustomId,
+        initialCtx
+      });
+      console.error(err);
+    });
+
+  // Button reply/input collector
+  const paginationCollector = interactionMessage.createMessageComponentCollector({
+    filter: (i) => (
+    // Filter out custom ids
+      i.customId === prevCustomId || i.customId === nextCustomId
+    ), // Filter out people without access to the command
+    componentType: ComponentType.Button,
+    time: activeDurationMs
+  });
+
+  // Reusable update
+  const updateEmbedReply = (i) => i.update({
+    embeds: [ usableEmbeds[pageNow - 1] ],
+    components: getPaginationComponents(pageNow, usableEmbeds.length, prevCustomId, nextCustomId)
+  });
+
+  // And finally, running code when it collects an interaction (defined as "i" in this callback)
+  paginationCollector.on('collect', (i) => {
+    if (handlePaginationButtons(
+      i,
+      member,
+      pageNow,
+      prevCustomId,
+      nextCustomId,
+      usableEmbeds
+    ) !== true) return;
+
+    // Prev Button - Go to previous page
+    if (i.customId === prevCustomId) pageNow--;
+    // Next Button - Go to next page
+    else if (i.customId === nextCustomId) pageNow++;
+
+    // Update reply with new page index
+    updateEmbedReply(i);
+  });
+
+  paginationCollector.on('end', () => {
+    interaction.editReply({ components: getPaginationComponents(
+      pageNow,
+      usableEmbeds.length,
+      prevCustomId,
+      nextCustomId,
+      true
+    ) }).catch(() => { /* Void */ });
+  });
+};
+
+const getPaginationComponents = (pageNow, pageTotal, prevCustomId, nextCustomId, disableAll = false) => {
+  return [
+    new ActionRowBuilder()
+      .addComponents(
+        new ButtonBuilder()
+          .setCustomId(prevCustomId)
+          .setLabel('Previous')
+          .setDisabled(!!(disableAll || pageNow === 1))
+          .setEmoji('◀️')
+          .setStyle(ButtonStyle.Primary),
+        new ButtonBuilder()
+          .setCustomId(nextCustomId)
+          .setLabel('Next')
+          .setDisabled(!!(disableAll || pageNow === pageTotal))
+          .setEmoji('▶️')
+          .setStyle(ButtonStyle.Primary)
+      )
+  ];
+};
+
 module.exports = {
   clientConfig,
   splitCamelCaseStr,
@@ -231,5 +390,10 @@ module.exports = {
   wait: sleep,
   sleep,
   getRuntime,
-  msToHumanReadableTime
+  msToHumanReadableTime,
+  isAllowedContentType,
+  handlePaginationButtons,
+  dynamicInteractionReplyFn,
+  handlePagination,
+  getPaginationComponents
 };

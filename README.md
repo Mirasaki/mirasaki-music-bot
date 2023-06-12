@@ -1,143 +1,105 @@
-# discord.js-bot-template
+<p align="center"><img src="assets/logo.png" alt="Mirasaki Music Bot Logo" height="60" style="border-radius:50px"/></p>
+<h1 align="center">Mirasaki Music Bot</h1>
+<div align='center'>
 
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
-![build](https://img.shields.io/github/actions/workflow/status/Mirasaki/discord.js-bot-template/test.yml?branch=main)
-[![CodeFactor](https://www.codefactor.io/repository/github/mirasaki/discord.js-bot-template/badge)](https://www.codefactor.io/repository/github/mirasaki/discord.js-bot-template)
+![build](https://img.shields.io/github/actions/workflow/status/mirasaki/mirasaki-music-bot/test.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/mirasaki/mirasaki-music-bot/badge)](https://www.codefactor.io/repository/github/mirasaki/mirasaki-music-bot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Docker Pulls](https://img.shields.io/docker/pulls/mirasaki/discord-bot-template)
-![version](https://img.shields.io/github/v/release/Mirasaki/discord.js-bot-template)
+![Docker Pulls](https://img.shields.io/docker/pulls/mirasaki/mirasaki-music-bot)
+![version](https://img.shields.io/github/v/release/Mirasaki/mirasaki-music-bot)
+<!-- ![size](https://img.shields.io/docker/image-size/mirasaki/mirasaki-music-bot) -->
 
----
+</div>
+<p align="center">
+  A free, open-source JavaScript music bot created with <a href="https://discord.js.org/#/"><code>discord.js</code></a> and <a href="https://discord-player.js.org/"><code>discord-player</code></a>. Complete (45+ commands) with persistent settings, effects, filters, auto-play, DJ-roles, and so much more.
+</p>
 
-This is a bot template using [discord.js](https://github.com/discordjs/discord.js "discord.js on Github") for quickly and easily creating powerful [Discord](https://discord.com/ "Official Discord Website") bots. You don't need much Javascript experience to get started on a project using this template. Not sure where to start? Come join my [Discord Server](https://discord.mirasaki.dev "Mirasaki Development on Discord"), where I'll try and answer all the questions you have.
+<p align="center">
+  <a href="https://youtube.com">Youtube</a>
+  •
+  <a href="https://spotify.com">Spotify</a>
+  •
+  <a href="https://soundcloud.com/">SoundCloud</a>
+  •
+  <a href="https://music.apple.com/">Apple Music</a>
+  •
+  <a href="https://vimeo.com/">Vimeo</a>
+  •
+  <a href="https://www.reverbnation.com/">ReverbNation</a>
+  •
+  <a href="https://discord.com">Discord Attachments</a>
+</p>
 
----
+<br />
+<p align="center"><a href="/assets/showcase/thumbnail.gif"><img src="assets/showcase/thumbnail.gif" width="75%" style="border-radius:25px;box-shadow:black 2px 2px 25px;width:min(500px, 100%)"/></a>
 
-With [Message Content Access becoming a privileged intent](https://support-dev.discord.com/hc/en-us/articles/4404772028055-Message-Content-Access-Deprecation-for-Verified-Bots "source") I thought I'd build a template where you're ready to start working on commands after installing it. This template currently doesn't listen to the `messageCreate` event. Update Slash Commands by using the `/deploy` command or altering the environmental variables. It also uses the latest Discord features, like auto-complete, buttons, modals, and other components.
+<br />
+<br />
+<h2 align="center">⭐ It's free, open-source, and self-host - meaning you're in full control</h2>
+<p align="center">
+  This project was created and open-sourced by <a href="https://mirasaki.dev" target="_blank">Mirasaki Development</a>. That means it's publicly available for anyone to grab and use in any way you want (MIT licensed). This project will never be monetized, every feature will always be free. All we need to keep adding new functionality and modules is some GitHub stars. Join the absolute <strong>legends</strong> below by clicking that Star button in the top-right of your screen, it doesn't cost you anything <strong>and</strong> means the world to us ❤️
+</p>
+<br />
 
----
+<div align='center'>
 
-Uses [Semantic Release](https://github.com/semantic-release/semantic-release) so you can easily determine if it's appropriate for you to [update](#updating) the bot
+[![Stargazers repo roster for @Mirasaki/mirasaki-music-bot](https://reporoster.com/stars/Mirasaki/mirasaki-music-bot)](https://github.com/Mirasaki/mirasaki-music-bot/stargazers)
+</div>
+<br />
+<br/>
 
----
+## 📜 Table of Contents
 
-## Table of Contents
-
-- [Live Demo](#live-demo)
-- [Showcase](#showcase)
-- [Documentation](#documentation)
 - [Features](#features)
-  - [Dynamic Command Handler](#dynamic-command-handler)
-  - [Dynamic Component Handler](#dynamic-component-handler)
-  - [Dynamic Event Handler](#dynamic-event-handler)
-  - [RESTful API](#restful-api)
-  - [Others](#others)
-- [Notes](#notes)
-- [Installation & Usage](#installation--usage)
+- [Installation & Usage](#installation-and-usage)
   - [Prerequisites](#prerequisites)
   - [Docker](#run-as-a-docker-container-preferred)
   - [Node](#run-as-a-plain-nodejs-app)
-  - [Updating](#updating)
+- [Configuration](#configuration)
+- [Discord Permissions](#discord-permissions)
+- [Client Permissions](#client-permissions)
+- [Support](#support)
 
----
+<br/>
+<h2 id="features">🤩 Features (non-exhaustive, always adding more)</h2>
 
-<h2 id="live-demo">Live Demo</h2>
+- Easy installation
+- Settings with persistency
+- 60+ total audio filters
+- Multiple server support
+- Vote skip
+- Search, play, and lyrics autocomplete enabled
+- Search play buttons
+- DJ Roles
+- Dedicated music channels
+- Thread sessions
+- Auto-play (24/7)
+- Biquad filter + Equalizer
+- 4 Repeat/loop modes
+- Full track history
+- Slash commands and modern Discord components
+- Lyrics
+- Volume (persistent)
+- Full playback control
+  - with over 20 player-control commands like
+  - `/pause`
+  - `/skip-to`
+  - `/swap-songs`
+  - and so much more
+- Save songs by sending it to your DMs
 
-Come try the template yourself in our official [support server](https://discord.mirasaki.dev "Mirasaki Development on Discord")
+<br/>
+<h2 id="installation-and-usage">🔨 Installation & Usage</h2>
 
-<h2 id="showcase">Showcase / Projects using this template</h2>
+### Prerequisites
 
-- [Green Mountain Trader - over 300,000 users](https://mirasaki.dev/gmt)
-- [DayZ Leaderboard bot](https://github.com/Mirasaki/dayz-leaderboard-bot "DayZ Leaderboard bot on GitHub")
-- Create a new issues if you want to have your project showcased here
-
-<h2 id="documentation">Documentation</h2>
-
-- The client (bot) code is documented at [djs.mirasaki.dev](https://djs.mirasaki.dev "Client Documentation")
-- The API is documented at [djs.mirasaki.dev/api-docs](https://djs.mirasaki.dev/tutorial-api-docs "Backend/API Documentation")
-- Source code is well documented with comments, explaining what's going on
-- With the use of JSDoc for client documentation, enjoy code-completion (IntelliSense) in your favorite code editor
-
-<h2 id="features">Features</h2>
-
-<h3 id="dynamic-command-handler">Dynamic Command Handler</h3>
-
-- This template comes with a powerful, yet simple to understand and modify, dynamic command handler. You can go straight to adding new commands without having to worry about client internals.
-- [Message Content Access is becoming a privileged intent](https://support-dev.discord.com/hc/en-us/articles/4404772028055-Message-Content-Access-Deprecation-for-Verified-Bots "source") and that's why this template focuses on Discord's [Application Commands](https://discord.com/developers/docs/interactions/receiving-and-responding#interactions "Discord Application Command Documentation"). In fact, we don't even activity listen to the `messageCreate` event.
-- Every module in the [command root folder](/src/commands/) will be loaded as a [ChatInputCommand](https://djs.mirasaki.dev/ChatInputCommand.html "ChatInputCommand Documentation"), taking care of default configuration.
-    1. Default command name is the name of the file without extension.
-    2. Default command category is the name of the parent folder.
-- Every module in the [context-menus folder](/src/context-menus/) will be loaded as either a [UserContextCommand](https://djs.mirasaki.dev/UserContextCommand.html "UserContextCommand Documentation") or a [MessageContextCommand](https://djs.mirasaki.dev/UserContextCommand.html "MessageContextCommand Documentation"), depending on which folder it's located in.
-- Deep nest to your heart's content. Deep nesting files in folders for all [ChatInputCommand](https://djs.mirasaki.dev/ChatInputCommand.html "ChatInputCommand Documentation"), and **any** API Components is supported for 25 levels.
-- Configure internal permission levels, and define any additional (optional) Discord permissions required to execute the command. Useful for Moderation tools.
-- Enable commands globally, restrict them to a single testing server, or even disable it all together if you've discovered a major bug in your code.
-- Throttle your command usage, configure a `{{usages}} in {{duration}}` cooldown to individual commands. With the 5 different available cooldown types (user, member, channel, guild, global), you can configure an appropriate cooldown for all your commands and components.
-- Configure aliases for all your Application Commands. (ChatInput, UserContextMenu, and MessageContextMenu)
-
-<h3 id="dynamic-component-handler">Dynamic Component Handler</h3>
-
-- Ignores component actions where the custom id starts with `@` - so you can use in-command listeners along side the built-in component handler
-- Supports, and uses, all the latest Discord API features, like buttons, modals, context-menus, select-menus, and is autocomplete-enabled!
-- The same configuration as your command files. Apply a cooldown to any component, and manage permissions and all the other configuration you're used to from this template.
-- Examples on how to implement all the different API components.
-    1. [`/info`](/src/context-menus/user/info.js) - User Context Menu Command, displays detailed information about the user. (Right-click a user -> Apps)
-    2. [`/print-embeds`](/src/context-menus/message/print-embed.js) - Message Context Menu Command, grabs and prints raw Embed JSON data from a message and sends it to the member. (Right-click a message -> Apps)
-    3. [Autocomplete-enabled `/help` command](src/interactions/autocomplete/help.js) - The template is auto-complete enabled, just return an array of any size in the files `run()` function
-    4. [`/eval` button-integration](/src/interactions/buttons/eval/acceptEval.js) - Manage buttons and button-groups easily, and apply additional permissions and cooldown for **all** components. (except `autocomplete`)
-    5. [`/eval` modal-integration](/src/interactions/modals/evalSubmit.js) - Manage modals, we have unique identifier declared in our [constants file](/src/constants.js) to make sure we use the same `customId` field across all components and different files. Not required, but strongly recommended.
-    6. [`/help` select-menu-integration](/src/interactions/select-menus/help.js) - Integrating seamlessly with the code in our main [`/help` command](/src/commands/system/help.js)
-
-<h3 id="dynamic-event-handler">Dynamic Event Handler</h3>
-
-Every file in [the `listeners` folder](/src/listeners/) will be registered as an event listener where the file name without extension is the name of the event. Creating a file named `messageCreate.js` will listen to the `messageCreate` event, achieving the same as using `client.on()`. It listens for events, not much more to say about it.
-
-<h3 id="restful-api">RESTful API</h3>
-
-This template comes with a REST API (OpenAPI spec 3.0.0). By default, this only serves the client's command data, which can be used to easily fetch your command data and build a dynamic command table/overview on your personal website. As this project is meant to be newbie-friendly, I thought I would include a **very** basic API template, so new developers are free to play around with it without having to set-up anything themselves. Change `USE_API` to `true` in the [env file](/.env.example) to enable this feature.
-
-<h3 id="others">Others</h3>
-
-- Supports VSCode IntelliSense for auto-complete during local development.
-- Uses Discord's Autocomplete API, and showcases it in the `/help` command.
-- All the template files have comments explaining what's going on, making it easy for new JavaScript developers to jump in.
-- Comes with a [utility file](https://djs.mirasaki.dev/module-Utils.html "Utility file documentation"), which exports utility functions to make your common tasks easier/faster.
-- Extensions to `discord.js` have been containerized. Everything is documented in the [typings file](/typings.d.ts), or check out the [client-extension](https://djs.mirasaki.dev/module-Client.html "Client-extension documentation") file, which is served as `client.container`.
-- Automatically (environmental variable dependent) deploy changes to your API commands, or use the [/deploy](/src/commands/developer/deploy.js) command.
-
-<h3 id="notes">Notes</h3>
-
-- Don't like the folder structure? Jump into the [environmental file](/.env.example) and configure where your commands and components are loaded from
-- Every embed color code and emoji are grabbed from their respective [configuration file](/src/config/), meaning you can personalize the bot without having to go over a plethora of files
-- Comes with a [constants file](/src/constants.js) to manage your unique ids and previously hard-coded values
-- Comes with many example scripts for `pm2` and `docker`, including a docker development build - to get you started using these awesome services
-- And lastly...
-
-You don't **have** to use the built-in component command (buttons, modals, etc) handler. Alternatively, you can use the following (vanilla `discord.js`) code to achieve the same, but within a ChatInput/UserContextMenu/MessageContextMenu command file:
-
-```javascript
-// In any scope with a valid interaction object
-const { ComponentType } = require('discord.js');
-// Fetching the message attached to the received interaction
-const interactionMessage = await interaction.fetchReply();
-
-// Button reply/input collector
-const acceptEvalCollector = interactionMessage.createMessageComponentCollector({
-    filter: (i) => (
-        // Filter out custom ids
-        i.customId === 'customId' || i.customId === 'customIdTwo'
-    ) && i.user.id === interaction.user.id, // Filter out people without access to the command
-    componentType: ComponentType.Button,
-    time: 60000
-});
-
-// And finally, running code when it collects an interaction (defined as "i" in this callback)
-acceptEvalCollector.on('collect', (i) => { /* The callback to run */ });
-```
-
-<h2 id="installation--usage">Installation & Usage</h2>
-
-<h3 id="prerequisites">Prerequisites</h3>
-
+- [FFmpeg](https://ffmpeg.org/) or Avconv
+  - Windows: [download source](https://ffmpeg.org/download.html#build-windows)
+  - Linux: [packages](https://ffmpeg.org/download.html#build-linux)
+  - macOS: [static builds](https://ffmpeg.org/download.html#build-mac)
+  - Directly supported through Docker
+  - If you're having trouble installing FFmpeg, you can try [ffmpeg-static](https://www.npmjs.com/package/ffmpeg-static), by running `npm install ffmpeg-static` - this is a last resort and **not** recommended
 - A [Discord Bot account](https://discord.com/developers/applications "Discord Developer Portal")
     1) Head over to the page linked above
     2) Click "New Application" in the top right
@@ -145,70 +107,198 @@ acceptEvalCollector.on('collect', (i) => { /* The callback to run */ });
     4) Click "Bot" in the left hand panel
     5) Click "Add Bot" -> "Yes, do it!"
     6) Click "Reset Token" and copy it to your clipboard, you will need it later
-
-> If you're planning on hosting the backend, be sure to run the command `npm run docs` after installing, otherwise the root/index at `http://localhost:3000/` will return a 404 | Not Found error.
-
-<h3 id="run-as-a-docker-container-preferred">Run as a Docker container (preferred)</h3>
-
-The quickest, and easiest, way to host/use this bot is by deploying it inside of a [Docker](https://docs.docker.com/engine/install/ "Official Docker Website") container.
-
-1. Clone this repository: `git clone https://github.com/Mirasaki/discord.js-bot-template.git`
-2. Navigate inside the new folder: `cd discord.js-bot-template`
-3. Rename `.env.example` to `.env` and provide your environmental variables
-4. Rename `config.example.js` to `config.js` and provide your configuration
-
-    - Alternatively, you can now use the `docker-compose up` command to finish setting up the project if you have the [Docker Compose CLI](https://docs.docker.com/compose/) installed
-
-5. Build the project: `docker build --tag my-discord-bot .`
-6. Start the bot: `docker run -it --env-file .env --name my-discord-bot mirasaki/discord-bot-template:main`
-
-There's a plethora of Docker scripts included in the `/package.json` file, including a development environment - take a look to get started if you've never used Docker before!
-
-<h3 id="run-as-a-plain-nodejs-app">Run as a plain NodeJS app</h3>
-
-<h4 id="prerequisites">Prerequisites</h4>
-
 - [NodeJS](https://nodejs.org/en/download/ "Node official website") (if you're running as a plain NodeJS app)
     1) Head over to the download page
-    2) Download the current build (latest features) available for your OS
+    2) Download the latest LTS build available for your OS
     3) Be sure to check the box that says "Automatically install the necessary tools" when you're running the installation wizard
+
+### Run as a Docker container (preferred)
+
+The quickest and easiest way to host/use this bot is by deploying it inside of a [Docker](https://docs.docker.com/engine/install/ "Official Docker Website") container.
+
+> *A [**docker-compose**](https://docs.docker.com/compose/ "View docker-compose documentation") file is included for your convenience*
+
+1. Clone this repository: `git clone https://github.com/Mirasaki/mirasaki-music-bot.git`
+2. Navigate inside the new folder: `cd mirasaki-music-bot`
+3. Rename `/.env.example` to `.env` and provide your environmental variables
+    - Windows users often experience issues with this file, if you're getting errors that the env file can't be found, or `Expected path argument to be of type string` - check out [this timestamped video](https://youtu.be/6rOCUZ8opLM?t=42)
+4. (optional) Rename `/config.example.js` to `config.js` and provide your bot configuration
+5. Build the project: `docker build --tag my-mirasaki-music-bot .`
+6. Start the bot: `docker run -it --env-file .env --name my-mirasaki-music-bot`
+
+### Run as a plain NodeJS app
 
 You can also clone this repository or download a release, and host the project directly. You will need [Node/NodeJS](https://nodejs.org/en/ "Node official website") (Be sure to check the box that says "Automatically install the necessary tools" when you're running the installation wizard)
 
-1. Head over to [the download page](https://github.com/Mirasaki/discord.js-bot-template/releases/)
-    - Alternatively, clone this repository by using `git clone https://github.com/Mirasaki/discord.js-bot-template.git` and skip to step 4 if you have [Git](https://git-scm.com/downloads "Git Download Section") installed.
+1. Head over to [the download page](https://github.com/Mirasaki/mirasaki-music-bot/releases/)
+    - Alternatively, clone this repository by using `git clone https://github.com/Mirasaki/mirasaki-music-bot.git` and skip to step 4 if you have [Git](https://git-scm.com/downloads "Git Download Section") installed
 2. Download either the `zip` or `zip.gz` source code
 3. Extract it using [your favorite zip tool](https://www.rarlab.com/download.htm "It's WinRar, duh")
-4. Open a new console/terminal/shell window in the newly created project folder.
-5. Run `npm i --include-dev` to install all dependencies, including development dependencies.
-6. Rename [`.env.example`](/.env.example "View .env.example file in current repository") to `.env` and configure your environmental variables
-7. Rename [`config.example.js`](/config.example.js "View config.example.js file in current repository") to `config.js` and go through your bot configuration
+4. Open a new console/terminal/shell window in the newly created project folder
+5. Run `npm install` to install all dependencies
+6. Rename [`/.env.example`](/.env.example "View .env.example file in current repository") to `.env` and configure your environmental variables
+    - Windows users often experience issues with this file, if you're getting errors that the env file can't be found, or `Expected path argument to be of type string` - check out [this timestamped video](https://youtu.be/6rOCUZ8opLM?t=42)
+7. (optional) Rename [`/config.example.js`](/config.example.js "View config.example.js file in current repository") to `config.js` and go through your bot configuration
 8. Use the command `node .` to start the application, or alternatively:
-    - `npm run start` to keep the process alive with [PM2](https://pm2.io/ "PM2 | Official Website"), suitable for production environments. (`npm i -g pm2` to install)
-    - `npm run start:dev` if you have `nodemon` installed for automatic restarts on changes, suitable for development environments.
+    - `npm run pm2:start` to keep the process alive in the background with [PM2](https://pm2.io/ "PM2 | Official Website"), suitable for production environments. (`npm i -g pm2` to install)
+    - `npm run start:dev` if you have `nodemon` installed for automatic restarts on changes, suitable for development environments
 
-<h3 id="updating">Updating</h3>
+<br/>
+<h2 id="configuration">🛠️ Configuration (optional - alternatively configurable with commands)</h2>
 
-This project uses [Semantic Release](https://github.com/semantic-release/semantic-release) so you can update your own bot to the new standards of the template using a relatively simple and easy workflow:
+All configuration is done in `/config.js`. Multiple Discord servers are supported. The configuration file is created during the installation and usage steps. Below is detailed information on what the settings do.
 
-1. Add a new remote repository, called `upstream` here
+```js
+{
+  // Note: all the default# properties all configurable by commands
+  // This is here so that you can configure everything in one go
+  // without having to figure out different commands,
+  // if you're not comfortable editing this, use the commands
 
-    - `git remote add upstream git@github.com:Mirasaki/discord.js-bot-template.git`
+  // Note: default# properties only take affect the first time
+  // playback is initialized in your server/guild
 
-2. Pull changes from the upstream repo:
+  // Between 0 and 100
+  // 100 is obnoxiously loud and will f*** your ears
+  defaultVolume: 5,
 
-    - `git pull upstream main --allow-unrelated-histories`
-    - `--allow-unrelated-histories` is a dangerous flag, and you should only use this if you know what you're doing!
-    - Now, you should see some merge conflicts - I recommended resolving the merge in the VSCode Merge Editor
-    - If you just want it to download the changes without automatically merging, use `git fetch` instead of `git pull`
+  // The default repeat mode
+  // 0 - Off | Don't repeat
+  // 1 - Track | Repeat current track, always - until skipped
+  // 2 - Queue | Repeat the entire queue, finished songs get added back at the end of the current queue
+  // 3 - Autoplay | Autoplay recommended music when queue is empty
+  //
+  // 3 = 24/7 autoplay/continuous radio if uninterrupted - only use if you have
+  // bandwidth for days
+  defaultRepeatMode: 0,
 
-3. If you want to disable/prevent pushing to the remote repository, set the push URL to an invalid URL using something like
+  // Amount of seconds to stay in the voice channel
+  // when playback is finished
+  // Default: 2 minutes
+  defaultLeaveOnEndCooldown: 120,
 
-    - `git config remote.upstream.pushurl "PREVENTS_PUSH_TO_REMOTE_UPSTREAM"`
+  // When true, will create a thread when the voice session is first initialized
+  // and continue to send music/queue events in that thread instead of flooding
+  // the channel
+  defaultUseThreadSessions: true,
 
-That's it! You're done!
-If you know of a better workflow to pull remote changes, like `git merge -/- --squash etc` (not ideal) - please let us know by creating an issue or pull request.
+  // When true, and defaultUseThreadSessions is true, will only allow commands involving
+  // the current session to be used in the created session Thread channel
+  defaultThreadSessionStrictCommandChannel: true,
 
----
+  // Plugins/Music source extractors
+  plugins: {
+    youtube: true,
+    fileAttachments: true,
+
+    appleMusic: true,
+    vimeo: true,
+    reverbNation: true,
+    // To disable Spotify:
+    // spotify: false,
+    spotify: {
+      clientId: process.env.SPOTIFY_CLIENT_ID,
+      clientSecret: process.env.SPOTIFY_CLIENT_SECRET
+    },
+
+    // Problematic, slows queries down by ~3 seconds
+    // if enabled, and you can no longer query with
+    // /play, use /search instead, grab the desired link
+    // and /play that instead
+    soundCloud: false
+  },
+
+  // Bot activity
+  presence: {
+    // One of online, idle, invisible, dnd
+    status: 'online',
+    activities: [
+      {
+        name: '/play',
+        // One of Playing, Streaming, Listening, Watching
+        type: 'Listening'
+      }
+    ]
+  },
+
+  // Permission config
+  permissions: {
+    // Bot Owner, highest permission level (5)
+    ownerId: '290182686365188096',
+
+    // Bot developers, second to highest permission level (4)
+    developers: [ '' ]
+  },
+
+  // The Discord server invite to your Support server
+  supportServerInviteLink: 'https://discord.gg/mirasaki',
+
+  // Additional permissions that are considered required when generating
+  // the bot invite link with /invite
+  permissionsBase: [
+    PermissionsBitField.Flags.ViewChannel,
+    PermissionsBitField.Flags.SendMessages,
+    PermissionsBitField.Flags.SendMessagesInThreads
+  ]
+}
+```
+
+<br/>
+<h2 id="discord-permissions">🟣 Discord Permissions</h2>
+
+> This is not the permission level required to execute actions or run commands, like User, Moderator or Administrator
+
+Invite the bot to your server by navigating to the following URL (replace `YOUR_CLIENT_ID` with `DISCORD_CLIENT_ID` from the `/.env` file):
+
+`https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=0&scope=bot%20applications.commands`
+
+Any command can be used without any Discord permissions, as long as the bot is invited to your server with the `bot` and `applications.commands` scopes. You can use the template url above, or alternatively, generate an invite link in the [Discord Developer Portal](https://discord.com/developers/applications) (Your App > OAuth2 > URL Generator > `scopes: bot + applications.commands`)
+
+For the bot to be able to join your Voice Channel, it will need the `View Channel`, `Connect` and `Speak` permissions.
+
+The bot needs the `View Channel`, `Send Messages`, and `Embed Links` in any channel where playback is initialized to be able to send event notifications to that channel.
+
+<br/>
+<h2 id="client-permissions">🟢 Client Permissions</h2>
+
+These are permission levels that are used internally by the bot to determine the permission level of any given user and determine which commands they can use. Available permissions levels are:
+
+> *You can modify Moderators, Administrators, Developers and Bot Owners in `/config.js`, this is optional*
+
+- 0 - User - This is the default permission levels, everyone has this this - doesn't have access to any dangerous commands
+- 1 - Moderator - Unused in this bot. Anyone that has the Discord permissions `Kick Members` and `Ban Members` is considered a Moderator
+- 2 - Administrator - The Administrator permission level is the highest permission level that can be assigned through Discord. Anyone with the Discord permission `Administrator` is considered an Administrator internally and will have access to powerful commands like `/clear-queue`
+- 3 - Server Owner - This is the permission level of your Discord server owner, only 1 person can have this at any given time. Used to make sure server owners have a snowflake permission level internally 🙏 Doesn't currently have any exclusive commands, but you can choose to restrict commands to this permission level as needed
+- 4 - Developer - This is for members that develop on the bot, has access to dev utilities like `/eval` and `/exec`. This permission level can do almost everything, including evaluating arbitrary code on your host machine - use with caution!
+- 5 - Bot Owner - Bypasses every permission bit and level check, has access to every command and command.
+
+You can modify required permission levels to execute commands in the command files by setting the permLevel property. Let's take a look at an example `/src/commands/` file:
+
+```javascript
+module.exports = new ChatInputCommand({
+  // Inside of the ChatInputCommand({
+  // Can be set to User, Moderator, Administrator, Server Owner, Developer, Bot Owner
+  // Support IntelliSense/auto-complete
+  permLevel: 'Administrator',
+  // ... other properties
+  run: async (client, interaction) => {
+    // The commands #run/execute function
+  }
+});
+```
+
+<br />
+<h2 id="support">Support</h2>
+
+Join our [support server](https://discord.gg/mirasaki) if you need any further assistance, have feature suggestion or have any other feedback
+
+[![banner](https://invidget.switchblade.xyz/mirasaki)](https://discord.gg/mirasaki)
+
+Contact me personally for legal enquiries at: `me@mirasaki.dev`
+
+<br/>
 
 > Open source, self-hosted, and MIT licensed, meaning you're in full control.
+
+<br/>  
+<p align="center"><a href="https://github.com/Mirasaki/mirasaki-music-bot#mirasaki-music-bot"><img src="http://randojs.com/images/backToTopButton.png" alt="Back to top" height="29"/></a></p>

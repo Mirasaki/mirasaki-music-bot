@@ -20,13 +20,3 @@ jobs:
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  notify-finish:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Discord Webhook - Notify Finish Release
-        uses: tsickert/discord-webhook@v5.3.0
-        with:
-          webhook-url: ${{ secrets.GH_RELEASE_WEBHOOK_URL }}
-          content: "<@&975346074560634940>, a new version was just **released** - go check it out: [here](<${{ github.server_url }}/${{ github.repository }}/releases/latest>)"

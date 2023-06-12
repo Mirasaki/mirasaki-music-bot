@@ -4,6 +4,7 @@ const { ChatInputCommand } = require('../../classes/Commands');
 const { colorResolver, getRuntime } = require('../../util');
 
 module.exports = new ChatInputCommand({
+  enabled: process.env.NODE_ENV !== 'production',
   permLevel: 'Developer',
   clientPerms: [ 'EmbedLinks', 'AttachFiles' ],
   data: {
