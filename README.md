@@ -51,6 +51,7 @@
 ## 📜 Table of Contents
 
 - [Features](#features)
+- [Demo](#demo)
 - [Installation & Usage](#installation-and-usage)
   - [Prerequisites](#prerequisites)
   - [Docker](#run-as-a-docker-container-preferred)
@@ -87,6 +88,11 @@
   - `/swap-songs`
   - and so much more
 - Save songs by sending it to your DMs
+
+<br/>
+<h2 id="demo">🎁 Demo</h2>
+
+Don't take our word for it, though. Instead, you should just see for yourself in our [support server](https://discord.gg/mirasaki).
 
 <br/>
 <h2 id="installation-and-usage">🔨 Installation & Usage</h2>
