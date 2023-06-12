@@ -1,5 +1,6 @@
 // Importing from packages
-require('dotenv').config();
+const { existsSync } = require('fs');
+require('dotenv').config({ path: existsSync('.env') ? '.env' : '.env.example' });
 const logger = require('@mirasaki/logger');
 const chalk = require('chalk');
 const {
@@ -267,7 +268,7 @@ logger.success(`Finished initializing after ${ getRuntime(initTimerStart).ms } m
 if (USE_API === 'true') require('./server/');
 
 // Exit before initializing listeners in test mode
-if (modeArg && modeArg.endsWith('test')) process.exit(1);
+if (modeArg && modeArg.endsWith('test')) process.exit(0);
 
 (async () => {
   // If you don't want to use all of the extractors and register only the required ones manually, use
