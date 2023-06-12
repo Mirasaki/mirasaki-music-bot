@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="https://youtube.com">Youtube</a>
+  <a href="https://youtube.com">YouTube</a>
   •
   <a href="https://spotify.com">Spotify</a>
   •
