@@ -1,0 +1,53 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify-start:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord Webhook - Notify Start Deploy
+        uses: tsickert/discord-webhook@v5.3.0
+        continue-on-error: true
+        with:
+          webhook-url: ${{ secrets.DEPLOYMENT_WEBHOOK_URL }}
+          embed-author-name: "⬇️ Mirasaki Music Bot"
+          embed-color: 14228765
+          embed-description: "⌛ Deploying **`@${{ github.repository }}`**...\n📤 <@1111598064659079228> is now temporarily unavailable."
+  deploy:
+    needs: notify-start
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Deploy to Production
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            cd ~/node/discord/mirasaki-music-bot
+
+            pm2 stop mirasaki-music-bot
+            git pull origin main
+            npm ci
+
+            pm2 restart mirasaki-music-bot
+  notify-finish:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord Webhook - Notify Finish Deploy
+        uses: tsickert/discord-webhook@v5.3.0
+        with:
+          webhook-url: ${{ secrets.DEPLOYMENT_WEBHOOK_URL }}
+          embed-author-name: "⬆️ Mirasaki Music Bot"
+          embed-color: 45317
+          embed-description: "✅ Finished deploying **`@${{ github.repository }}`**\n📥 <@1111598064659079228> is back online"
