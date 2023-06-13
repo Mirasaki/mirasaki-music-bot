@@ -52,6 +52,7 @@ module.exports = new ComponentCommand({ run: async (client, interaction) => {
 
     // Resolve leave on end cooldown
     const leaveOnEndCooldown = ((settings.leaveOnEndCooldown ?? 2) * MS_IN_ONE_SECOND);
+    const leaveOnEmptyCooldown = ((settings.leaveOnEmptyCooldown ?? 2) * MS_IN_ONE_SECOND);
 
     // nodeOptions are the options for guild node (aka your queue in simple word)
     // we can access this metadata object using queue.metadata later on
@@ -63,6 +64,8 @@ module.exports = new ComponentCommand({ run: async (client, interaction) => {
         nodeOptions: {
           leaveOnEnd: true,
           leaveOnEndCooldown,
+          leaveOnEmpty: settings.leaveOnEmpty,
+          leaveOnEmptyCooldown,
           volume,
           metadata: {
             channel: eventChannel,

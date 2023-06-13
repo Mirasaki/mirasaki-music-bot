@@ -94,15 +94,21 @@ module.exports = (player) => {
   });
 
   player.events.on('emptyChannel', (queue) => {
-    // Emitted when the voice channel has been empty for the set threshold
-    // Bot will automatically leave the voice channel with this event
-    queue.metadata.channel.send({ embeds: [
+    const settings = getGuildSettings(queue.guild.id);
+    if (!settings) return;
+    const ctx = { embeds: [
       {
         color: colorResolver(),
-        title: 'Channel Empty',
-        description: 'Leaving channel because it has been empty for the past 5 minutes'
+        title: 'Channel Empty'
       }
-    ] });
+    ] };
+    if (!settings.leaveOnEmpty) ctx.embeds[0].description = 'Staying in channel as leaveOnEnd is disabled';
+    else ctx.embeds[0].description = `Leaving empty channel in ${ msToHumanReadableTime(
+      (settings.leaveOnEmptyCooldown ?? clientConfig.defaultLeaveOnEndCooldown) * MS_IN_ONE_SECOND
+    ) }`;
+    // Emitted when the voice channel has been empty for the set threshold
+    // Bot will automatically leave the voice channel with this event
+    queue.metadata.channel.send(ctx);
   });
 
   player.events.on('emptyQueue', (queue) => {
