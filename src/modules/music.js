@@ -294,8 +294,9 @@ const musicEventChannel = async (client, interaction) => {
     return false;
   }
   if (!interaction.channel.isThread()) {
-    const thread = await interaction.channel.threads
-      .create({
+    const thread = await interaction.channel
+      ?.threads
+      ?.create({
         name: `Music Session ${ new Date().toUTCString() }`,
         autoArchiveDuration: ThreadAutoArchiveDuration.OneHour,
         // type: ChannelType.PublicThread,
