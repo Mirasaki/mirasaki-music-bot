@@ -50,6 +50,7 @@
 
 ## 📜 Table of Contents
 
+- [Showcase](#showcase)
 - [Features](#features)
 - [Demo](#demo)
 - [Installation & Usage](#installation-and-usage)
@@ -60,6 +61,28 @@
 - [Discord Permissions](#discord-permissions)
 - [Client Permissions](#client-permissions)
 - [Support](#support)
+
+<br/>
+<h2 id="showcase">🎥 Showcase</h2>
+
+<details>
+<summary>Click to view</summary>
+
+![shuffle-queue](./assets/showcase/1-shuffle-queue.png)
+![now-playing](./assets/showcase/2-now-playing.png)
+![play-sessions](./assets/showcase/3-play-sessions.png)
+![vote-skip](./assets/showcase/4-vote-skip.png)
+![skip-to](./assets/showcase/5-skip-to.png)
+![audio-filters](./assets/showcase/6-audio-filters.png)
+![dj-roles](./assets/showcase/7-dj-roles.png)
+![equalizer](./assets/showcase/8-equalizer.png)
+![music-channels](./assets/showcase/9-music-channels.png)
+![repeat-mode](./assets/showcase/10-repeat-mode.png)
+![biquad-queue-previous](./assets/showcase/11-biquad-queue-previous.png)
+![save-song](./assets/showcase/12-save-song.png)
+![seek](./assets/showcase/13-seek.png)
+
+</details>
 
 <br/>
 <h2 id="features">🤩 Features (non-exhaustive, always adding more)</h2>
