@@ -32,6 +32,15 @@ const config = {
   // Default: 2 minutes
   defaultLeaveOnEndCooldown: 120,
 
+  // Should the bot leave the voice-channel if there's no other members
+  defaultLeaveOnEmpty: true,
+
+  // Time amount of seconds to stay in the voice channel
+  // when channel is empty/no other members aside from bot
+  // Only active when leaveOnEmpty is true
+  // Default: 2 minutes
+  defaultLeaveOnEmptyCooldown: 120,
+
   // When true, will create a thread when the voice session is first initialized
   // and continue to send music/queue events in that thread instead of flooding
   // the channel

@@ -62,6 +62,8 @@ const getGuildSettings = (guildId) => {
       useThreadSessions: clientConfig.defaultUseThreadSessions,
       threadSessionStrictCommandChannel: clientConfig.defaultThreadSessionStrictCommandChannel,
       leaveOnEndCooldown: clientConfig.defaultLeaveOnEndCooldown,
+      leaveOnEmpty: clientConfig.defaultLeaveOnEmpty,
+      leaveOnEmptyCooldown: clientConfig.defaultLeaveOnEmptyCooldown,
       djRoleIds: [],
       equalizer: 'null'
     });
@@ -107,6 +109,18 @@ const getGuildSettings = (guildId) => {
 
   if (typeof settings.equalizer === 'undefined') {
     settings.equalizer = 'null';
+    guilds.update(settings);
+    saveDb();
+  }
+
+  if (typeof settings.leaveOnEmpty === 'undefined') {
+    settings.leaveOnEmpty = clientConfig.defaultLeaveOnEmpty;
+    guilds.update(settings);
+    saveDb();
+  }
+
+  if (typeof settings.leaveOnEmptyCooldown === 'undefined') {
+    settings.leaveOnEmptyCooldown = clientConfig.defaultLeaveOnEmptyCooldown;
     guilds.update(settings);
     saveDb();
   }
