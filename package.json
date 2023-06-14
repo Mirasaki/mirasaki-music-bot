@@ -31,12 +31,12 @@
     "writeLinter": "eslint src --output-file linter-output.txt"
   },
   "dependencies": {
-    "@discord-player/extractor": "^4.2.2",
+    "@discord-player/extractor": "^4.3.1",
     "@discordjs/opus": "^0.9.0",
     "@discordjs/rest": "^1.7.0",
     "@mirasaki/logger": "^1.0.5",
     "common-tags": "^1.8.2",
-    "discord-player": "^6.3.1",
+    "discord-player": "^6.5.0",
     "discord.js": "^14.11.0",
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
