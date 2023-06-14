@@ -1,7 +1,7 @@
 {
   "name": "mirasaki-music-bot",
   "description": "A free, open-source JavaScript music bot created with discord.js and discord-player",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "src/index.js",
   "scripts": {
     "start": "node .",
