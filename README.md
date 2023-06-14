@@ -226,9 +226,9 @@ All configuration is done in `/config.js`. Multiple Discord servers are supporte
 
   // Plugins/Music source extractors
   plugins: {
-    youtube: true,
     fileAttachments: true,
-
+    youtube: true,
+    soundCloud: true,
     appleMusic: true,
     vimeo: true,
     reverbNation: true,
@@ -239,11 +239,6 @@ All configuration is done in `/config.js`. Multiple Discord servers are supporte
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET
     },
 
-    // Problematic, slows queries down by ~3 seconds
-    // if enabled, and you can no longer query with
-    // /play, use /search instead, grab the desired link
-    // and /play that instead
-    soundCloud: false
   },
 
   // Bot activity
