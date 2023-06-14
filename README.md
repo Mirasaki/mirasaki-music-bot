@@ -68,6 +68,7 @@
 <details>
 <summary>Click to view</summary>
 
+![24-7-music](./assets/showcase/0-24-7-music.png)
 ![shuffle-queue](./assets/showcase/1-shuffle-queue.png)
 ![now-playing](./assets/showcase/2-now-playing.png)
 ![play-sessions](./assets/showcase/3-play-sessions.png)
