@@ -731,7 +731,7 @@ const generateCommandOverviewEmbed = (commands, interaction) => {
     title: `Command help for ${ guild.name }`,
     color: colorResolver(colors.main),
     fields,
-    footer: { text: `Requested by ${ member.user.tag }` }
+    footer: { text: `Requested by ${ member.user.username }` }
   };
 };
 

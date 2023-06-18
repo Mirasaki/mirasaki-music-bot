@@ -60,7 +60,7 @@ module.exports = new ChatInputCommand({
         {
           color: colorResolver(),
           author: {
-            name: `${ client.user.tag }`,
+            name: `${ client.user.username }`,
             iconURL: client.user.displayAvatarURL()
           },
           fields: [
