@@ -215,10 +215,7 @@ const registerGlobalCommands = async (client) => {
     // Invalid Form Body error
     if (err.status === 400) {
       logger.syserr(`Error encountered while trying to register command API data: ${ err.message }`);
-      for (const [ index ] in err.rawError.errors) {
-        // Logging the invalid data to the console
-        console.log(err.requestBody.json[Number(index)]);
-      }
+      logger.printErr(err);
     }
 
     else {

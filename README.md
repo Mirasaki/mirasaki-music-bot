@@ -238,7 +238,6 @@ All configuration is done in `/config.js`. Multiple Discord servers are supporte
       clientId: process.env.SPOTIFY_CLIENT_ID,
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET
     },
-
   },
 
   // Bot activity
