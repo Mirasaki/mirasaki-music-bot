@@ -101,5 +101,3 @@ module.exports = new ComponentCommand({ run: async (client, interaction) => {
     interaction.editReply(`${ emojis.error } ${ member }, something went wrong:\n\n${ e.message }`);
   }
 } });
-
-// [1212. LA BATALLA DE LAS NAVAS DE TOLOSA | Trailer oficial | Documental](https://www.youtube.com/watch?v=AUGd7CJf_Cw)
