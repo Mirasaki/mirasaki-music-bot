@@ -52,7 +52,7 @@
     "@semantic-release/release-notes-generator": "^11.0.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.43.0",
+    "eslint": "^8.44.0",
     "eslint-plugin-sonarjs": "^0.19.0",
     "nodemon": "^2.0.22",
     "semantic-release": "^21.0.6"
