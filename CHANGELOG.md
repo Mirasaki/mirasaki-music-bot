@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.0...v1.1.1) (2023-07-21)
+
+
+### Bug Fixes
+
+* discriminator deprecation ([78c9545](https://github.com/Mirasaki/mirasaki-music-bot/commit/78c9545b1dc789337c9470afef929b76df7bf32e))
+* wrong command data being display on command API errors ([61de626](https://github.com/Mirasaki/mirasaki-music-bot/commit/61de6265389455e1f27277286457d92d19b711bb))
+
 # [1.1.0](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.0.0...v1.1.0) (2023-06-14)
 
 
