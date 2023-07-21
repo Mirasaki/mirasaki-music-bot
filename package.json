@@ -31,12 +31,13 @@
     "writeLinter": "eslint src --output-file linter-output.txt"
   },
   "dependencies": {
-    "@discord-player/extractor": "^4.3.1",
+    "@discord-player/extractor": "^4.4.0",
     "@discordjs/opus": "^0.9.0",
     "@discordjs/rest": "^1.7.0",
     "@mirasaki/logger": "^1.0.5",
+    "chalk": "^4.1.2",
     "common-tags": "^1.8.2",
-    "discord-player": "^6.5.0",
+    "discord-player": "^6.6.1",
     "discord.js": "^14.11.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -47,15 +48,15 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^10.0.0",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^9.0.2",
+    "@semantic-release/github": "^9.0.4",
     "@semantic-release/npm": "^10.0.4",
-    "@semantic-release/release-notes-generator": "^11.0.2",
+    "@semantic-release/release-notes-generator": "^11.0.4",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.43.0",
+    "eslint": "^8.45.0",
     "eslint-plugin-sonarjs": "^0.19.0",
-    "nodemon": "^2.0.22",
-    "semantic-release": "^21.0.5"
+    "nodemon": "^3.0.1",
+    "semantic-release": "^21.0.7"
   },
   "repository": {
     "type": "git",
