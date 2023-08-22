@@ -27,7 +27,7 @@ function initializeDatabase (err) {
 
   // Resolve guilds collection
   db.getCollection('guilds')
-    ?? db.addCollection('guilds', { unique: 'id' });
+    ?? db.addCollection('guilds', { unique: [ 'guildId' ] });
 
   // Kick off any program logic or start listening to external events
   runProgramLogic();
@@ -48,6 +48,7 @@ const saveDb = (cb) => db
     }
     if (typeof cb === 'function') cb();
   });
+
 // Utility function for resolving guild settings
 const getGuildSettings = (guildId) => {
   const guilds = db.getCollection('guilds');

@@ -6,10 +6,10 @@ const {
 const { clientConfig, isAllowedContentType } = require('../../util');
 const { getGuildSettings } = require('../../modules/db');
 const {
-  useMasterPlayer, useQueue, EqualizerConfigurationPreset
+  useMainPlayer, useQueue, EqualizerConfigurationPreset
 } = require('discord-player');
 const { MS_IN_ONE_SECOND } = require('../../constants');
-const player = useMasterPlayer();
+const player = useMainPlayer();
 
 module.exports = new ChatInputCommand({
   global: true,

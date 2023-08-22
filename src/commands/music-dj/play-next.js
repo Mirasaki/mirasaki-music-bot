@@ -1,7 +1,7 @@
 const { ApplicationCommandOptionType } = require('discord.js');
 const { ChatInputCommand } = require('../../classes/Commands');
 const { requireSessionConditions } = require('../../modules/music');
-const { useMasterPlayer, useQueue } = require('discord-player');
+const { useMainPlayer, useQueue } = require('discord-player');
 
 module.exports = new ChatInputCommand({
   global: true,
@@ -18,7 +18,7 @@ module.exports = new ChatInputCommand({
     ]
   },
   run: async (client, interaction) => {
-    const player = useMasterPlayer();
+    const player = useMainPlayer();
     const { emojis } = client.container;
     const { member, guild } = interaction;
     const query = interaction.options.getString('query', true); // we need input/query to play

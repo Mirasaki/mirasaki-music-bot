@@ -2,7 +2,7 @@ const {
   ApplicationCommandOptionType, EmbedBuilder, ComponentType, ActionRowBuilder, ButtonBuilder, ButtonStyle
 } = require('discord.js');
 const { ChatInputCommand } = require('../../classes/Commands');
-const { useMasterPlayer } = require('discord-player');
+const { useMainPlayer } = require('discord-player');
 const {
   colorResolver, dynamicInteractionReplyFn, handlePaginationButtons, getPaginationComponents
 } = require('../../util');
@@ -26,7 +26,7 @@ module.exports = new ChatInputCommand({
   },
   // eslint-disable-next-line sonarjs/cognitive-complexity
   run: async (client, interaction) => {
-    const player = useMasterPlayer();
+    const player = useMainPlayer();
     const { emojis } = client.container;
     const {
       member, guild, options
