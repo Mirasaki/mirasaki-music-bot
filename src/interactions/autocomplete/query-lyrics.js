@@ -1,8 +1,8 @@
-const { useMasterPlayer } = require('discord-player');
+const { useMainPlayer } = require('discord-player');
 const { ComponentCommand } = require('../../classes/Commands');
 
 module.exports = new ComponentCommand({ run: async (client, interaction, query) => {
-  const player = useMasterPlayer();
+  const player = useMainPlayer();
   if (!query) return [];
   const result = await player.search(query);
 

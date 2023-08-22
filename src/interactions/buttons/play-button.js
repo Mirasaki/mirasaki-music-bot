@@ -4,9 +4,9 @@ const { getGuildSettings } = require('../../modules/db');
 const { requireSessionConditions, musicEventChannel } = require('../../modules/music');
 const { clientConfig } = require('../../util');
 const {
-  useMasterPlayer, useQueue, EqualizerConfigurationPreset
+  useMainPlayer, useQueue, EqualizerConfigurationPreset
 } = require('discord-player');
-const player = useMasterPlayer();
+const player = useMainPlayer();
 
 module.exports = new ComponentCommand({ run: async (client, interaction) => {
   const {
