@@ -90,7 +90,7 @@
   },
   "homepage": "https://github.com/Mirasaki/mirasaki-music-bot#readme",
   "optionalDependencies": {
-    "fsevents": "^2.3.2"
+    "fsevents": "^2.3.3"
   },
   "config": {
     "commitizen": {
