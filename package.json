@@ -42,7 +42,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "lokijs": "^1.5.12",
-    "play-dl": "^1.9.6"
+    "ytdl-core": "^4.11.5"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
