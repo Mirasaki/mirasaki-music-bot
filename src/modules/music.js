@@ -160,7 +160,7 @@ const requireMusicChannel = (interaction) => {
   const { musicChannelIds } = settings;
 
   // Return if falsy
-  if (!musicChannelIds) return true;
+  if (!musicChannelIds || !musicChannelIds[0]) return true;
 
   // Use Strict Thread Session command channels
   if (
@@ -168,9 +168,19 @@ const requireMusicChannel = (interaction) => {
     && settings.threadSessionStrictCommandChannel === true
   ) {
     const queue = useQueue(guild.id);
-    if (queue && channel.id !== queue.metadata.channel.id) {
+    if (
+      (!queue && !musicChannelIds.includes(channel.id))
+      || (queue && channel.id !== queue.metadata.channel.id)
+    ) {
+      const output = `${ emojis.error } ${ member }, please use music commands in the dedicated music session channel <#${ queue
+        ? queue.metadata.channel.id
+        : musicChannelIds[0]
+      }>`;
+      const outputMultipleChannels = `${ emojis.error } ${ member }, please use music commands in one of the dedicated music session channels: ${
+        musicChannelIds.map((e) => `<#${ e }>`).join(', ')
+      }`;
       const ctx = {
-        content: `${ emojis.error } ${ member }, please use music commands in the dedicated music session channel <#${ queue.metadata.channel.id }>`,
+        content: queue ? output : outputMultipleChannels,
         ephemeral: true
       };
       if (interaction.deferred || interaction.replied) interaction.editReply(ctx);
