@@ -4,7 +4,7 @@ const {
 } = require('./util');
 const { EmbedBuilder, escapeMarkdown } = require('discord.js');
 const { getGuildSettings } = require('./modules/db');
-const { MS_IN_ONE_SECOND } = require('./constants');
+const { MS_IN_ONE_SECOND, EMBED_DESCRIPTION_MAX_LENGTH } = require('./constants');
 
 module.exports = (player) => {
   // this event is emitted whenever discord-player starts to play a track
@@ -19,6 +19,17 @@ module.exports = (player) => {
           queue.metadata.member?.user?.username
         }` }
       }).setTimestamp(queue.metadata.timestamp)
+    ] });
+  });
+
+  player.events.on('error', (queue, error) => {
+    // Emitted when the player encounters an error
+    queue.metadata.channel.send({ embeds: [
+      {
+        color: colorResolver(),
+        title: 'Player Error',
+        description: error.message.slice(0, EMBED_DESCRIPTION_MAX_LENGTH)
+      }
     ] });
   });
 
@@ -123,7 +134,7 @@ module.exports = (player) => {
     ] });
   });
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.DEBUG_ENABLED === 'true') {
     player.events.on('debug', async (queue, message) => {
       // Emitted when the player queue sends debug info
       // Useful for seeing what state the current queue is at

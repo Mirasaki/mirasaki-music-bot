@@ -62,6 +62,7 @@ module.exports = new ComponentCommand({ run: async (client, interaction) => {
       {
         requestedBy: interaction.user,
         nodeOptions: {
+          skipOnNoStream: true,
           leaveOnEnd: true,
           leaveOnEndCooldown,
           leaveOnEmpty: settings.leaveOnEmpty,
