@@ -134,7 +134,7 @@ module.exports = (player) => {
     ] });
   });
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.DEBUG_ENABLED === 'true') {
     player.events.on('debug', async (queue, message) => {
       // Emitted when the player queue sends debug info
       // Useful for seeing what state the current queue is at
