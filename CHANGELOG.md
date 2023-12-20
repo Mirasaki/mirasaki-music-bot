@@ -1,3 +1,14 @@
+## [1.1.3](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.2...v1.1.3) (2023-12-20)
+
+
+### Bug Fixes
+
+* add error listener to discord-player ([6d28619](https://github.com/Mirasaki/mirasaki-music-bot/commit/6d28619710c160f257f90f2cef17dc0913a20c92))
+* check DEBUG_ENABLED environmental for player debugging ([8d45d7a](https://github.com/Mirasaki/mirasaki-music-bot/commit/8d45d7a1f5575d225df1a0239c48086436bdf5a5))
+* crash when extracting stream fails ([0264817](https://github.com/Mirasaki/mirasaki-music-bot/commit/026481723624e291d75f9a0b1710f70a98de987f))
+* logic for checking isMusicChannel when threadSessions are enabled ([e46ecb6](https://github.com/Mirasaki/mirasaki-music-bot/commit/e46ecb69212d86e71efe1d6197fbd0f4583361fa))
+* remove preview dependencies ([4da4826](https://github.com/Mirasaki/mirasaki-music-bot/commit/4da4826eb0deb55eb45e730863edc3a0a08326a3))
+
 ## [1.1.1](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.0...v1.1.1) (2023-07-21)
 
 
