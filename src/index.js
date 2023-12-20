@@ -62,7 +62,16 @@ const client = new Client({
 });
 
 // Discord Music Player
-const player = new Player(client);
+const player = new Player(client, {
+  skipFFmpeg: false,
+  useLegacyFFmpeg: false,
+  ytdlOptions: {
+    highWaterMark: 1 << 25,
+    filter: 'audioonly',
+    quality: 'highestaudio',
+    liveBuffer: 40000
+  }
+});
 require('./music-player')(player);
 
 // Destructuring from env
