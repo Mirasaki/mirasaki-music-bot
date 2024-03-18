@@ -57,7 +57,7 @@
     "eslint": "^8.56.0",
     "eslint-plugin-sonarjs": "^0.23.0",
     "nodemon": "^3.0.2",
-    "semantic-release": "^22.0.12"
+    "semantic-release": "^23.0.4"
   },
   "repository": {
     "type": "git",
