@@ -3,13 +3,9 @@ version: '3.1'
 services:
   client:
     build: .
-    container_name: client
+    container_name: music-bot-client
     restart: unless-stopped
     env_file:
       - .env
     environment:
       - NODE_ENV=production
-      - DISCORD_BOT_TOKEN=
-      - DISCORD_CLIENT_ID=
-      - SPOTIFY_CLIENT_ID=
-      - SPOTIFY_CLIENT_SECRET=
