@@ -4,12 +4,9 @@ services:
   client:
     build: .
     container_name: client
-    restart: always
-    volumes:
-      # Bind mount, read-only app
-      - ./:/app:ro
-      # Anonymous volume
-      - /app/node_modules
+    restart: unless-stopped
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
       - DISCORD_BOT_TOKEN=
