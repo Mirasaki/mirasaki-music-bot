@@ -9,7 +9,3 @@ services:
       - .env
     environment:
       - NODE_ENV=production
-      - DISCORD_BOT_TOKEN=
-      - DISCORD_CLIENT_ID=
-      - SPOTIFY_CLIENT_ID=
-      - SPOTIFY_CLIENT_SECRET=
