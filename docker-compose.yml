@@ -11,3 +11,5 @@ services:
       - NODE_ENV=production
     volumes:
       - ./config.js:/app/config.js
+      - ./mirasaki-music-bot.db:/app/mirasaki-music-bot.db
+      - ./mirasaki-music-bot.db~:/app/mirasaki-music-bot.db~
