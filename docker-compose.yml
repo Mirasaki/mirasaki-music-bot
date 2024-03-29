@@ -9,3 +9,5 @@ services:
       - .env
     environment:
       - NODE_ENV=production
+    volumes:
+      - ./config.js:/app/config.js
