@@ -1,3 +1,13 @@
+## [1.1.4](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.3...v1.1.4) (2024-03-29)
+
+
+### Bug Fixes
+
+* **Docker:** more unique container name for client ([4a07b4d](https://github.com/Mirasaki/mirasaki-music-bot/commit/4a07b4dbc17ac4bd08a4483b7f4c36d978dece38))
+* **docker:** remove empty environmental value declaration in docker-compose ([8d86017](https://github.com/Mirasaki/mirasaki-music-bot/commit/8d8601714ed5801bdd55ee631f869621e0a9610d))
+* remove bad docker compose volumes ([ebaa7f4](https://github.com/Mirasaki/mirasaki-music-bot/commit/ebaa7f4b1450f90028cbd9b8d6902c9945ebc79e))
+* update docker-compose file ([e8819e2](https://github.com/Mirasaki/mirasaki-music-bot/commit/e8819e2e48feedf18c03e460b11bc875d1927eb7))
+
 ## [1.1.3](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.2...v1.1.3) (2023-12-20)
 
 
