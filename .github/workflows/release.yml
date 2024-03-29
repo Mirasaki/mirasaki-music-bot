@@ -3,9 +3,6 @@ name: Release
 on:
   # Dispatch manually
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 jobs:
   release:
