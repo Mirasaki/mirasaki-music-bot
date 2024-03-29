@@ -145,7 +145,7 @@ Don't take our word for it, though. Instead, you should just see for yourself in
 
 The quickest and easiest way to host/use this bot is by deploying it inside of a [Docker](https://docs.docker.com/engine/install/ "Official Docker Website") container.
 
-> *A [**docker-compose**](https://docs.docker.com/compose/ "View docker-compose documentation") file is included for your convenience*
+> *A [**docker compose**](https://docs.docker.com/compose/ "View docker compose documentation") file is included for your convenience*
 
 1. Clone this repository: `git clone https://github.com/Mirasaki/mirasaki-music-bot.git`
 2. Navigate inside the new folder: `cd mirasaki-music-bot`
