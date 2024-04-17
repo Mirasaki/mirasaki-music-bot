@@ -152,8 +152,8 @@ The quickest and easiest way to host/use this bot is by deploying it inside of a
 3. Rename `/.env.example` to `.env` and provide your environmental variables
     - Windows users often experience issues with this file, if you're getting errors that the env file can't be found, or `Expected path argument to be of type string` - check out [this timestamped video](https://youtu.be/6rOCUZ8opLM?t=42)
 4. (optional) Rename `/config.example.js` to `config.js` and provide your bot configuration
-5. Build the project: `docker build --tag my-mirasaki-music-bot .`
-6. Start the bot: `docker run -it --env-file .env --name my-mirasaki-music-bot`
+5. Build the project: `docker build --tag mirasaki-music-bot .`
+6. Start the bot: `docker run -it --env-file .env --name my-mirasaki-music-bot mirasaki-music-bot`
 
 ### Run as a plain NodeJS app
 
