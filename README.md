@@ -128,7 +128,7 @@ Don't take our word for it, though. Instead, you should just see for yourself in
   - Linux: [packages](https://ffmpeg.org/download.html#build-linux)
   - macOS: [static builds](https://ffmpeg.org/download.html#build-mac)
   - Directly supported through Docker
-  - If you're having trouble installing FFmpeg, you can try [ffmpeg-static](https://www.npmjs.com/package/ffmpeg-static), by running `npm install ffmpeg-static` - this is a last resort and **not** recommended
+  - If you're having trouble installing FFmpeg, you can try [ffmpeg-static](https://www.npmjs.com/package/ffmpeg-static), by running `npm install ffmpeg-static` - this is a last resort and **not** recommended - **we do NOT provide support for this!**
 - A [Discord Bot account](https://discord.com/developers/applications "Discord Developer Portal")
     1) Head over to the page linked above
     2) Click "New Application" in the top right
