@@ -1,7 +1,6 @@
 services:
   client:
     build: .
-    container_name: music-bot-client
     restart: unless-stopped
     env_file:
       - .env

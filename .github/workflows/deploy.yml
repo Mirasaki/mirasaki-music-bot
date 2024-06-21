@@ -83,4 +83,4 @@ jobs:
           embed-author-icon-url: "https://mirasaki.dev/logo.png"
           embed-color: 9559538
           embed-title: "⬆️ Mirasaki Music Bot"
-          embed-description: "✅ Finished deploying **`@${{ github.repository }}`**\n📥 <@1199516344018796734> is back online"
+          embed-description: "✅ Finished deploying **`@${{ github.repository }}`**\n📥 <@1111598064659079228> is back online"
