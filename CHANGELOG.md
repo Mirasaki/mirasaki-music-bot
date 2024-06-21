@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.5...v1.1.6) (2024-06-21)
+
+
+### Bug Fixes
+
+* remove tem db file from docker compose ([593e0e9](https://github.com/Mirasaki/mirasaki-music-bot/commit/593e0e957c163da7956cbb7e7a32f3c89d899365))
+
 ## [1.1.4](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.3...v1.1.4) (2024-03-29)
 
 
