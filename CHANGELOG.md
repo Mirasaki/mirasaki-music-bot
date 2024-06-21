@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.6...v1.1.7) (2024-06-21)
+
+
+### Bug Fixes
+
+* correct bot id ([33e1c37](https://github.com/Mirasaki/mirasaki-music-bot/commit/33e1c37e16a7138e66f284f83d62982a6b479c66))
+
 ## [1.1.6](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.5...v1.1.6) (2024-06-21)
 
 
