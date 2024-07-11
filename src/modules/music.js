@@ -44,7 +44,10 @@ const requireInitializeSessionConditions = (interaction) => {
 
   // Channel is full
   // channel.userLimit >= channel.members.size
-  if (channel.full) {
+  if (
+    channel.full
+    && !channel.members.some((m) => m.id === interaction.client.user.id)
+  ) {
     interaction.reply({
       content: `${ emojis.error } ${ member }, your voice channel is currently full - this command has been cancelled`,
       ephemeral: true

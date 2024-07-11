@@ -1,11 +1,11 @@
-version: '3.1'
-
 services:
   client:
     build: .
-    container_name: music-bot-client
     restart: unless-stopped
     env_file:
       - .env
     environment:
       - NODE_ENV=production
+    volumes:
+      - ./config.js:/app/config.js
+      - ./mirasaki-music-bot.db:/app/mirasaki-music-bot.db

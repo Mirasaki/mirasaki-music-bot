@@ -1,53 +1,86 @@
 name: Deploy
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Release]
+    types:
+      - completed
 
 jobs:
   notify-start:
     runs-on: ubuntu-latest
+    # Only continue if the workflow run was successful
+    # Subsequent jobs will not run if this job fails,
+    # because of the `needs` parameters in the other jobs.
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Discord Webhook - Notify Start Deploy
         uses: tsickert/discord-webhook@v5.3.0
         continue-on-error: true
         with:
+          username: "Mirasaki Development CI/CD"
+          avatar-url: "https://mirasaki.dev/logo.png"
           webhook-url: ${{ secrets.DEPLOYMENT_WEBHOOK_URL }}
-          embed-author-name: "⬇️ Mirasaki Music Bot"
+          embed-author-name: "Continuous Deployment by Mirasaki Development"
+          embed-author-url: "https://mirasaki.dev"
+          embed-author-icon-url: "https://mirasaki.dev/logo.png"
           embed-color: 14228765
-          embed-description: "⌛ Deploying **`@${{ github.repository }}`**...\n📤 <@1111598064659079228> is now temporarily unavailable."
+          embed-title: "⬇️ Mirasaki Music Bot"
+          embed-description: "⌛ Deploying **`@${{ github.repository }}`**...\n📤 Service is now temporarily unavailable."
+
   deploy:
+    strategy: # Only run one deploy job at a time
+      max-parallel: 1
+    permissions:
+      # The "id-token: write" permission is required or Machine ID will not be
+      # able to authenticate with the cluster.
+      id-token: write
+      contents: read
+    name: deploy
     needs: notify-start
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Deploy to Production
-        uses: appleboy/ssh-action@master
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Fetch Teleport binaries
+        uses: teleport-actions/setup@v1
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          port: ${{ secrets.SSH_PORT }}
-          script: |
-            export NVM_DIR=~/.nvm
-            source ~/.nvm/nvm.sh
-            cd ~/node/discord/mirasaki-music-bot
-
-            pm2 stop music-bot
+          version: 16.0.1
+      - name: Fetch credentials using Machine ID
+        id: auth
+        uses: teleport-actions/auth@v2
+        with:
+          proxy: teleport.mirasaki.dev:443
+          token: deploy-bot
+          certificate-ttl: 1h
+          anonymous-telemetry: 1
+      - name: Deploy to Production
+        run: |
+          tsh ssh mirasaki-development@md01.na01.mirasaki.dev << 'ENDSSH'
+            cd /home/mirasaki-development/mirasaki/mirasaki-music-bot
             git pull origin main
-            npm ci
+            docker compose build --no-cache --pull --quiet
+            docker compose down
+            docker compose up -d
+            exit
+          ENDSSH
 
-            pm2 restart music-bot
   notify-finish:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Discord Webhook - Notify Finish Deploy
         uses: tsickert/discord-webhook@v5.3.0
         with:
+          username: "Mirasaki Development CI/CD"
+          avatar-url: "https://mirasaki.dev/logo.png"
           webhook-url: ${{ secrets.DEPLOYMENT_WEBHOOK_URL }}
-          embed-author-name: "⬆️ Mirasaki Music Bot"
-          embed-color: 45317
+          filename: "CHANGELOG.md"
+          embed-author-name: "Continuous Deployment by Mirasaki Development"
+          embed-author-url: "https://mirasaki.dev"
+          embed-author-icon-url: "https://mirasaki.dev/logo.png"
+          embed-color: 9559538
+          embed-title: "⬆️ Mirasaki Music Bot"
           embed-description: "✅ Finished deploying **`@${{ github.repository }}`**\n📥 <@1111598064659079228> is back online"

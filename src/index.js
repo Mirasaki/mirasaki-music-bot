@@ -10,12 +10,12 @@ const { Player } = require('discord-player');
 const {
   SpotifyExtractor,
   SoundCloudExtractor,
-  YouTubeExtractor,
   AttachmentExtractor,
   AppleMusicExtractor,
   VimeoExtractor,
   ReverbnationExtractor
 } = require('@discord-player/extractor');
+const { YoutubeiExtractor, createYoutubeiStream } = require('discord-player-youtubei');
 
 // Argv
 const modeArg = process.argv.find((arg) => arg.startsWith('mode='));
@@ -282,10 +282,13 @@ if (modeArg && modeArg.endsWith('test')) process.exit(0);
 (async () => {
   // If you don't want to use all of the extractors and register only the required ones manually, use
   if (clientConfig.plugins.soundCloud === true) await player.extractors.register(SoundCloudExtractor, {});
-  if (clientConfig.plugins.youtube === true) await player.extractors.register(YouTubeExtractor, {});
+  if (clientConfig.plugins.youtube === true) await player.extractors.register(YoutubeiExtractor, {});
   if (clientConfig.plugins.spotify) await player.extractors.register(
     SpotifyExtractor,
-    clientConfig.plugins.spotify ?? {}
+    {
+      ...clientConfig.plugins.spotify,
+      createStream: createYoutubeiStream
+    }
   );
   if (clientConfig.plugins.fileAttachments === true) await player.extractors.register(AttachmentExtractor, {});
   if (clientConfig.plugins.appleMusic === true) await player.extractors.register(AppleMusicExtractor, {});

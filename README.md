@@ -61,6 +61,7 @@
 - [Discord Permissions](#discord-permissions)
 - [Client Permissions](#client-permissions)
 - [Support](#support)
+- [Legal Notice](#legal-notice)
 
 <br/>
 <h2 id="showcase">🎥 Showcase</h2>
@@ -128,7 +129,7 @@ Don't take our word for it, though. Instead, you should just see for yourself in
   - Linux: [packages](https://ffmpeg.org/download.html#build-linux)
   - macOS: [static builds](https://ffmpeg.org/download.html#build-mac)
   - Directly supported through Docker
-  - If you're having trouble installing FFmpeg, you can try [ffmpeg-static](https://www.npmjs.com/package/ffmpeg-static), by running `npm install ffmpeg-static` - this is a last resort and **not** recommended
+  - If you're having trouble installing FFmpeg, you can try [ffmpeg-static](https://www.npmjs.com/package/ffmpeg-static), by running `npm install ffmpeg-static` - this is a last resort and **not** recommended - **we do NOT provide support for this!**
 - A [Discord Bot account](https://discord.com/developers/applications "Discord Developer Portal")
     1) Head over to the page linked above
     2) Click "New Application" in the top right
@@ -152,8 +153,8 @@ The quickest and easiest way to host/use this bot is by deploying it inside of a
 3. Rename `/.env.example` to `.env` and provide your environmental variables
     - Windows users often experience issues with this file, if you're getting errors that the env file can't be found, or `Expected path argument to be of type string` - check out [this timestamped video](https://youtu.be/6rOCUZ8opLM?t=42)
 4. (optional) Rename `/config.example.js` to `config.js` and provide your bot configuration
-5. Build the project: `docker build --tag my-mirasaki-music-bot .`
-6. Start the bot: `docker run -it --env-file .env --name my-mirasaki-music-bot`
+5. Build the project: `docker build --tag mirasaki-music-bot .`
+6. Start the bot: `docker run -it --env-file .env --name my-mirasaki-music-bot mirasaki-music-bot`
 
 ### Run as a plain NodeJS app
 
@@ -326,11 +327,16 @@ Join our [support server](https://discord.gg/mirasaki) if you need any further a
 
 [![banner](https://invidget.switchblade.xyz/mirasaki)](https://discord.gg/mirasaki)
 
-Contact me personally for legal enquiries at: `me@mirasaki.dev`
-
-<br/>
+<br />
 
 > Open source, self-hosted, and MIT licensed, meaning you're in full control.
+
+<br />
+<h2 id="legal-notice">Notice Regarding YouTube Streaming</h2>
+
+Please note that streaming from third-parties such as YouTube may break their Terms of Service. This may cause these third-parties to persue legal actions against these bots.
+
+`mirasaki-music-bot` actively encourages users **not** to **opt-in** to streaming Youtube, this is however entirely up to the user. Thus, in case of any legal/physical/digital damages caused, the author of this project (Mirasaki) will not be responsible for it.
 
 <br/>  
 <p align="center"><a href="https://github.com/Mirasaki/mirasaki-music-bot#mirasaki-music-bot"><img src="http://randojs.com/images/backToTopButton.png" alt="Back to top" height="29"/></a></p>
