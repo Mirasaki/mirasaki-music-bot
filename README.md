@@ -61,6 +61,7 @@
 - [Discord Permissions](#discord-permissions)
 - [Client Permissions](#client-permissions)
 - [Support](#support)
+- [Legal Notice](#legal-notice)
 
 <br/>
 <h2 id="showcase">🎥 Showcase</h2>
@@ -326,11 +327,16 @@ Join our [support server](https://discord.gg/mirasaki) if you need any further a
 
 [![banner](https://invidget.switchblade.xyz/mirasaki)](https://discord.gg/mirasaki)
 
-Contact me personally for legal enquiries at: `me@mirasaki.dev`
-
-<br/>
+<br />
 
 > Open source, self-hosted, and MIT licensed, meaning you're in full control.
+
+<br />
+<h2 id="legal-notice">Notice Regarding YouTube Streaming</h2>
+
+Please note that streaming from third-parties such as YouTube may break their Terms of Service. This may cause these third-parties to persue legal actions against these bots.
+
+`mirasaki-music-bot` actively encourages users **not** to **opt-in** to streaming Youtube, this is however entirely up to the user. Thus, in case of any legal/physical/digital damages caused, the author of this project (Mirasaki) will not be responsible for it.
 
 <br/>  
 <p align="center"><a href="https://github.com/Mirasaki/mirasaki-music-bot#mirasaki-music-bot"><img src="http://randojs.com/images/backToTopButton.png" alt="Back to top" height="29"/></a></p>

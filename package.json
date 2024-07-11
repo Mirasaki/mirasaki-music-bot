@@ -31,19 +31,18 @@
     "writeLinter": "eslint src --output-file linter-output.txt"
   },
   "dependencies": {
-    "@discord-player/extractor": "^4.4.6",
-    "@discordjs/opus": "^0.9.0",
+    "@discord-player/extractor": "^4.4.7",
     "@discordjs/rest": "^2.0.1",
     "@mirasaki/logger": "^1.0.5",
     "chalk": "^4.1.2",
     "common-tags": "^1.8.2",
-    "discord-player": "^6.6.7",
+    "discord-player": "^6.6.10",
+    "discord-player-youtubei": "^1.1.2",
     "discord.js": "^14.15.3",
     "dotenv": "^16.3.1",
-    "express": "^4.19.2",
     "lokijs": "^1.5.12",
-    "prism-media": "^1.3.5",
-    "ytdl-core": "^4.11.5"
+    "mediaplex": "^0.0.9",
+    "youtube-ext": "^1.1.25"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
