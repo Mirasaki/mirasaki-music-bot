@@ -1,3 +1,12 @@
+## [1.1.8](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.7...v1.1.8) (2024-07-11)
+
+
+### Bug Fixes
+
+* regenerate package-lock ([6f8cdd5](https://github.com/Mirasaki/mirasaki-music-bot/commit/6f8cdd5af02075bc52db5f52a9396492388a9a05))
+* set min node version to 18 ([d56cd61](https://github.com/Mirasaki/mirasaki-music-bot/commit/d56cd615888340c2fdf21e3da57e987e4dfb03ff))
+* use new youtube extractor provider ([2e98af1](https://github.com/Mirasaki/mirasaki-music-bot/commit/2e98af11217b22c0103449cbbf837d3b8b629c2a))
+
 ## [1.1.7](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.6...v1.1.7) (2024-06-21)
 
 
