@@ -72,7 +72,14 @@ module.exports = new ChatInputCommand({
           return;
         }
         await interaction.deferReply();
-        const isEnabled = await queue.filters.ffmpeg.toggle(audioFilter);
+        let isEnabled;
+        try {
+          isEnabled = await queue.filters.ffmpeg.toggle(audioFilter);
+        } catch (err) {
+          console.error('Error toggling audio filter:', err);
+          interaction.editReply(`${ emojis.error } ${ member }, an error occurred while toggling the audio filter - this command has been cancelled.`);
+          return;
+        }
 
         // Feedback
         interaction.editReply(`${ emojis.success } ${ member },  ${ audioFilter } has been toggled, it is now **${ isEnabled ? emojis.success + ' Enabled' : emojis.error + ' Disabled' }**`);
