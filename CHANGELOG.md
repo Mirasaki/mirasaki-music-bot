@@ -1,3 +1,10 @@
+## [1.1.9](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.8...v1.1.9) (2024-07-16)
+
+
+### Bug Fixes
+
+* catch ffmpeg toggle exception ([e34e06f](https://github.com/Mirasaki/mirasaki-music-bot/commit/e34e06f059e14fed5f29214942f2d917ca7cc2d9))
+
 ## [1.1.8](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.7...v1.1.8) (2024-07-11)
 
 
