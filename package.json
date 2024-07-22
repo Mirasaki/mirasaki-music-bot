@@ -31,7 +31,7 @@
     "writeLinter": "eslint src --output-file linter-output.txt"
   },
   "dependencies": {
-    "@discord-player/extractor": "^4.4.7",
+    "@discord-player/extractor": "^4.5.0",
     "@discordjs/rest": "^2.0.1",
     "@mirasaki/logger": "^1.0.5",
     "chalk": "^4.1.2",
