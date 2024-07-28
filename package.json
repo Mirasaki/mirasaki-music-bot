@@ -31,13 +31,13 @@
     "writeLinter": "eslint src --output-file linter-output.txt"
   },
   "dependencies": {
-    "@discord-player/extractor": "^4.4.7",
+    "@discord-player/extractor": "^4.5.0",
     "@discordjs/rest": "^2.0.1",
     "@mirasaki/logger": "^1.0.5",
     "chalk": "^4.1.2",
     "common-tags": "^1.8.2",
-    "discord-player": "^6.6.10",
-    "discord-player-youtubei": "^1.1.10",
+    "discord-player": "^6.7.0",
+    "discord-player-youtubei": "^1.2.0",
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
     "lokijs": "^1.5.12",
