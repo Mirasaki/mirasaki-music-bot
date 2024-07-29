@@ -97,7 +97,8 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "engineStrict": true,
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.0.0 <20.0.0"
   }
 }

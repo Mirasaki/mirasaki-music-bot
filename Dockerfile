@@ -1,4 +1,4 @@
-FROM node:19
+FROM node:19-slim
 
 # Create app/working/bot directory
 RUN mkdir -p /app
