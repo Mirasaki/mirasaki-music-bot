@@ -42,7 +42,8 @@
     "dotenv": "^16.4.5",
     "lokijs": "^1.5.12",
     "mediaplex": "^0.0.9",
-    "youtube-ext": "^1.1.25"
+    "youtube-ext": "^1.1.25",
+    "youtubei.js": "github:darktohka/YouTube.js"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
