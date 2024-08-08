@@ -152,7 +152,7 @@ The quickest and easiest way to host/use this bot is by deploying it inside of a
 2. Navigate inside the new folder: `cd mirasaki-music-bot`
 3. Rename `/.env.example` to `.env` and provide your environmental variables
     - Windows users often experience issues with this file, if you're getting errors that the env file can't be found, or `Expected path argument to be of type string` - check out [this timestamped video](https://youtu.be/6rOCUZ8opLM?t=42)
-4. (optional) Rename `/config.example.js` to `config.js` and provide your bot configuration
+4. Rename [`/config.example.js`](/config.example.js "View config.example.js file in current repository") to `config.js` (required) and go through your bot configuration (optional)
 5. Build the project: `docker build --tag mirasaki-music-bot .`
 6. Start the bot: `docker run -it --env-file .env --name my-mirasaki-music-bot mirasaki-music-bot`
 
@@ -168,7 +168,7 @@ You can also clone this repository or download a release, and host the project d
 5. Run `npm install` to install all dependencies
 6. Rename [`/.env.example`](/.env.example "View .env.example file in current repository") to `.env` and configure your environmental variables
     - Windows users often experience issues with this file, if you're getting errors that the env file can't be found, or `Expected path argument to be of type string` - check out [this timestamped video](https://youtu.be/6rOCUZ8opLM?t=42)
-7. (optional) Rename [`/config.example.js`](/config.example.js "View config.example.js file in current repository") to `config.js` and go through your bot configuration
+7. Rename [`/config.example.js`](/config.example.js "View config.example.js file in current repository") to `config.js` (required) and go through your bot configuration (optional)
 8. Use the command `node .` to start the application, or alternatively:
     - `npm run pm2:start` to keep the process alive in the background with [PM2](https://pm2.io/ "PM2 | Official Website"), suitable for production environments. (`npm i -g pm2` to install)
     - `npm run start:dev` if you have `nodemon` installed for automatic restarts on changes, suitable for development environments
