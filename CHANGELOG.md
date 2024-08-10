@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.2.1...v1.2.2) (2024-08-10)
+
+
+### Bug Fixes
+
+* remove support for YouTube and Spotify ([872d2e5](https://github.com/Mirasaki/mirasaki-music-bot/commit/872d2e5bf340dec7836c349f354d46256465d866))
+
 ## [1.1.9](https://github.com/Mirasaki/mirasaki-music-bot/compare/v1.1.8...v1.1.9) (2024-07-16)
 
 
