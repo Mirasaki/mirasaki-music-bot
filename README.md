@@ -86,7 +86,7 @@
 
 > Note: We no longer support YouTube and Spotify due to their Terms of Service. We have a TypeScript rewrite planned that will focus heavily on local media libraries and playlists. Please don't create support inquiries for YouTube and Spotify streaming.
 
-<h2 id="features">🤩 Features (non-exhaustive, always adding more)</h2>
+<h2 id="features">🤩 Features (non-exhaustive)</h2>
 
 - Easy installation
 - Settings with persistency
