@@ -61,8 +61,8 @@ module.exports = new ChatInputCommand({
     }
 
     try {
-      if (equalizer === 'null') queue.filters.equalizer.disable();
-      else {
+      if (equalizer === 'null' && queue.filters.equalizer) queue.filters.equalizer.disable();
+      else if (queue.filters.equalizer) {
         queue.filters.equalizer.setEQ(EqualizerConfigurationPreset[equalizer]);
         queue.filters.equalizer.enable();
       }

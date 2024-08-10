@@ -53,17 +53,10 @@ const config = {
   // Plugins/Music source extractors
   plugins: {
     fileAttachments: true,
-    youtube: true,
     soundCloud: false,
     appleMusic: true,
     vimeo: true,
     reverbNation: true,
-    // To disable Spotify:
-    // spotify: false,
-    spotify: {
-      clientId: process.env.SPOTIFY_CLIENT_ID,
-      clientSecret: process.env.SPOTIFY_CLIENT_SECRET
-    }
   },
 
   // Bot activity

@@ -60,8 +60,8 @@ module.exports = new ChatInputCommand({
     }
 
     try {
-      if (filter === 'null') queue.filters.biquad.disable();
-      else {
+      if (filter === 'null' && queue.filters.biquad) queue.filters.biquad.disable();
+      else if (queue.filters.biquad) {
         queue.filters.biquad.setFilter(BiquadFilterType[filter]);
         if (typeof gain === 'number') queue.filters.biquad.setGain(gain);
         queue.filters.biquad.enable();
