@@ -15,10 +15,6 @@
 </p>
 
 <p align="center">
-  <a href="https://youtube.com">YouTube</a>
-  •
-  <a href="https://spotify.com">Spotify</a>
-  •
   <a href="https://soundcloud.com/">SoundCloud</a>
   •
   <a href="https://music.apple.com/">Apple Music</a>
@@ -86,7 +82,10 @@
 
 </details>
 
-<br/>
+<br />
+
+> Note: We no longer support YouTube and Spotify due to their Terms of Service. We have a TypeScript rewrite planned that will focus heavily on local media libraries and playlists. Please don't create support inquiries for YouTube and Spotify streaming.
+
 <h2 id="features">🤩 Features (non-exhaustive, always adding more)</h2>
 
 - Easy installation
@@ -228,17 +227,10 @@ All configuration is done in `/config.js`. Multiple Discord servers are supporte
   // Plugins/Music source extractors
   plugins: {
     fileAttachments: true,
-    youtube: true,
     soundCloud: true,
     appleMusic: true,
     vimeo: true,
     reverbNation: true,
-    // To disable Spotify:
-    // spotify: false,
-    spotify: {
-      clientId: process.env.SPOTIFY_CLIENT_ID,
-      clientSecret: process.env.SPOTIFY_CLIENT_SECRET
-    },
   },
 
   // Bot activity
@@ -330,13 +322,6 @@ Join our [support server](https://discord.gg/mirasaki) if you need any further a
 <br />
 
 > Open source, self-hosted, and MIT licensed, meaning you're in full control.
-
-<br />
-<h2 id="legal-notice">Notice Regarding YouTube Streaming</h2>
-
-Please note that streaming from third-parties such as YouTube may break their Terms of Service. This may cause these third-parties to persue legal actions against these bots.
-
-`mirasaki-music-bot` actively encourages users **not** to **opt-in** to streaming Youtube, this is however entirely up to the user. Thus, in case of any legal/physical/digital damages caused, the author of this project (Mirasaki) will not be responsible for it.
 
 <br/>  
 <p align="center"><a href="https://github.com/Mirasaki/mirasaki-music-bot#mirasaki-music-bot"><img src="http://randojs.com/images/backToTopButton.png" alt="Back to top" height="29"/></a></p>

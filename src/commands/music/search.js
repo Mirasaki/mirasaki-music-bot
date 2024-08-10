@@ -13,7 +13,7 @@ const logger = require('@mirasaki/logger');
 module.exports = new ChatInputCommand({
   global: true,
   data: {
-    description: 'Play a song. Query YouTube, search Spotify, provide a direct link, etc',
+    description: 'Play a song. Query SoundCloud, search Vimeo, provide a direct link, etc.',
     options: [
       {
         name: 'query',
