@@ -14,7 +14,7 @@ const player = useMainPlayer();
 module.exports = new ChatInputCommand({
   global: true,
   data: {
-    description: 'Play a song. Query YouTube, search Spotify, provide a direct link, etc',
+    description: 'Play a song. Query SoundCloud, search Vimeo, provide a direct link, etc.',
     options: [
       {
         name: 'query',
@@ -125,7 +125,7 @@ module.exports = new ChatInputCommand({
         queue.filters.equalizer.setEQ(EqualizerConfigurationPreset[settings.equalizer]);
         queue.filters.equalizer.enable();
       }
-      else queue.filters.equalizer.disable();
+      else if (queue.filters?.equalizer) queue.filters.equalizer.disable();
 
       // Feedback
       await interaction.editReply(`${ emojis.success } ${ member }, enqueued **\`${ track.title }\`**!`);

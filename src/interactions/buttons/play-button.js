@@ -93,7 +93,7 @@ module.exports = new ComponentCommand({ run: async (client, interaction) => {
       queue.filters.equalizer.setEQ(EqualizerConfigurationPreset[settings.equalizer]);
       queue.filters.equalizer.enable();
     }
-    else queue.filters.equalizer.disable();
+    else if (queue.filters.equalizer) queue.filters.equalizer.disable();
 
     // Feedback
     await interaction.editReply(`${ emojis.success } ${ member }, enqueued **\`${ track.title }\`**!`);

@@ -1,7 +1,7 @@
 {
   "name": "mirasaki-music-bot",
   "description": "A free, open-source JavaScript music bot created with discord.js and discord-player",
-  "version": "1.1.9",
+  "version": "1.2.2",
   "main": "src/index.js",
   "scripts": {
     "start": "node .",
@@ -37,12 +37,10 @@
     "chalk": "^4.1.2",
     "common-tags": "^1.8.2",
     "discord-player": "^6.7.1",
-    "discord-player-youtubei": "^1.2.6",
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
     "lokijs": "^1.5.12",
-    "mediaplex": "^0.0.9",
-    "youtube-ext": "^1.1.25"
+    "mediaplex": "^0.0.9"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
@@ -99,6 +97,6 @@
   },
   "engineStrict": true,
   "engines": {
-    "node": ">=18.0.0 <20.0.0"
+    "node": ">=20.0.0 <22.0.0"
   }
 }

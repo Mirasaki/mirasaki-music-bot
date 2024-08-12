@@ -15,10 +15,6 @@
 </p>
 
 <p align="center">
-  <a href="https://youtube.com">YouTube</a>
-  •
-  <a href="https://spotify.com">Spotify</a>
-  •
   <a href="https://soundcloud.com/">SoundCloud</a>
   •
   <a href="https://music.apple.com/">Apple Music</a>
@@ -86,8 +82,11 @@
 
 </details>
 
-<br/>
-<h2 id="features">🤩 Features (non-exhaustive, always adding more)</h2>
+<br />
+
+> Note: We no longer support YouTube and Spotify due to their Terms of Service. We have a TypeScript rewrite planned that will focus heavily on local media libraries and playlists. Please don't create support inquiries for YouTube and Spotify streaming.
+
+<h2 id="features">🤩 Features (non-exhaustive)</h2>
 
 - Easy installation
 - Settings with persistency
@@ -152,7 +151,7 @@ The quickest and easiest way to host/use this bot is by deploying it inside of a
 2. Navigate inside the new folder: `cd mirasaki-music-bot`
 3. Rename `/.env.example` to `.env` and provide your environmental variables
     - Windows users often experience issues with this file, if you're getting errors that the env file can't be found, or `Expected path argument to be of type string` - check out [this timestamped video](https://youtu.be/6rOCUZ8opLM?t=42)
-4. (optional) Rename `/config.example.js` to `config.js` and provide your bot configuration
+4. Rename [`/config.example.js`](/config.example.js "View config.example.js file in current repository") to `config.js` (required) and go through your bot configuration (optional)
 5. Build the project: `docker build --tag mirasaki-music-bot .`
 6. Start the bot: `docker run -it --env-file .env --name my-mirasaki-music-bot mirasaki-music-bot`
 
@@ -168,7 +167,7 @@ You can also clone this repository or download a release, and host the project d
 5. Run `npm install` to install all dependencies
 6. Rename [`/.env.example`](/.env.example "View .env.example file in current repository") to `.env` and configure your environmental variables
     - Windows users often experience issues with this file, if you're getting errors that the env file can't be found, or `Expected path argument to be of type string` - check out [this timestamped video](https://youtu.be/6rOCUZ8opLM?t=42)
-7. (optional) Rename [`/config.example.js`](/config.example.js "View config.example.js file in current repository") to `config.js` and go through your bot configuration
+7. Rename [`/config.example.js`](/config.example.js "View config.example.js file in current repository") to `config.js` (required) and go through your bot configuration (optional)
 8. Use the command `node .` to start the application, or alternatively:
     - `npm run pm2:start` to keep the process alive in the background with [PM2](https://pm2.io/ "PM2 | Official Website"), suitable for production environments. (`npm i -g pm2` to install)
     - `npm run start:dev` if you have `nodemon` installed for automatic restarts on changes, suitable for development environments
@@ -228,17 +227,10 @@ All configuration is done in `/config.js`. Multiple Discord servers are supporte
   // Plugins/Music source extractors
   plugins: {
     fileAttachments: true,
-    youtube: true,
     soundCloud: true,
     appleMusic: true,
     vimeo: true,
     reverbNation: true,
-    // To disable Spotify:
-    // spotify: false,
-    spotify: {
-      clientId: process.env.SPOTIFY_CLIENT_ID,
-      clientSecret: process.env.SPOTIFY_CLIENT_SECRET
-    },
   },
 
   // Bot activity
@@ -330,13 +322,6 @@ Join our [support server](https://discord.gg/mirasaki) if you need any further a
 <br />
 
 > Open source, self-hosted, and MIT licensed, meaning you're in full control.
-
-<br />
-<h2 id="legal-notice">Notice Regarding YouTube Streaming</h2>
-
-Please note that streaming from third-parties such as YouTube may break their Terms of Service. This may cause these third-parties to persue legal actions against these bots.
-
-`mirasaki-music-bot` actively encourages users **not** to **opt-in** to streaming Youtube, this is however entirely up to the user. Thus, in case of any legal/physical/digital damages caused, the author of this project (Mirasaki) will not be responsible for it.
 
 <br/>  
 <p align="center"><a href="https://github.com/Mirasaki/mirasaki-music-bot#mirasaki-music-bot"><img src="http://randojs.com/images/backToTopButton.png" alt="Back to top" height="29"/></a></p>
