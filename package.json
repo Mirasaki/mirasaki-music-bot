@@ -52,7 +52,7 @@
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.56.0",
-    "eslint-plugin-sonarjs": "^1.0.4",
+    "eslint-plugin-sonarjs": "^2.0.1",
     "nodemon": "^3.1.4",
     "semantic-release": "^24.0.0"
   },
