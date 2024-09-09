@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@discord-player/extractor": "^4.5.1",
-    "@discordjs/rest": "^2.3.0",
+    "@discordjs/rest": "^2.4.0",
     "@mirasaki/logger": "^1.0.5",
     "chalk": "^4.1.2",
     "common-tags": "^1.8.2",
