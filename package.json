@@ -37,7 +37,7 @@
     "chalk": "^4.1.2",
     "common-tags": "^1.8.2",
     "discord-player": "^6.7.1",
-    "discord.js": "^14.16.1",
+    "discord.js": "^14.16.2",
     "dotenv": "^16.4.5",
     "lokijs": "^1.5.12",
     "mediaplex": "^0.0.9"
@@ -46,7 +46,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.0",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^10.3.3",
+    "@semantic-release/github": "^10.3.4",
     "@semantic-release/npm": "^12.0.1",
     "@semantic-release/release-notes-generator": "^14.0.1",
     "commitizen": "^4.3.0",
@@ -54,7 +54,7 @@
     "eslint": "^8.56.0",
     "eslint-plugin-sonarjs": "^2.0.2",
     "nodemon": "^3.1.4",
-    "semantic-release": "^24.1.0"
+    "semantic-release": "^24.1.1"
   },
   "repository": {
     "type": "git",
