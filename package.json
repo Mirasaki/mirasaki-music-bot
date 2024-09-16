@@ -37,7 +37,7 @@
     "chalk": "^4.1.2",
     "common-tags": "^1.8.2",
     "discord-player": "^6.7.1",
-    "discord.js": "^14.16.1",
+    "discord.js": "^14.16.2",
     "dotenv": "^16.4.5",
     "lokijs": "^1.5.12",
     "mediaplex": "^0.0.9"
