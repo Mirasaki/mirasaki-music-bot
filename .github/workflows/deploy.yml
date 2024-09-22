@@ -46,12 +46,12 @@ jobs:
       - name: Fetch Teleport binaries
         uses: teleport-actions/setup@v1
         with:
-          version: 16.0.1
+          version: 16.4.1
       - name: Fetch credentials using Machine ID
         id: auth
         uses: teleport-actions/auth@v2
         with:
-          proxy: teleport.mirasaki.dev:443
+          proxy: tp.mirasaki.dev:443
           token: deploy-bot
           certificate-ttl: 1h
           anonymous-telemetry: 1
