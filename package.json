@@ -38,7 +38,7 @@
     "common-tags": "^1.8.2",
     "discord-player": "^6.7.1",
     "discord.js": "^14.16.3",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "lokijs": "^1.5.12",
     "mediaplex": "^0.0.9"
   },
