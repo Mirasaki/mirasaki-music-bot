@@ -40,7 +40,7 @@
     "discord.js": "^14.16.3",
     "dotenv": "^16.4.5",
     "lokijs": "^1.5.12",
-    "mediaplex": "^0.0.9"
+    "mediaplex": "^1.0.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
