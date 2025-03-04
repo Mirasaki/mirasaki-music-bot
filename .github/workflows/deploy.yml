@@ -57,7 +57,7 @@ jobs:
           anonymous-telemetry: 1
       - name: Deploy to Production
         run: |
-          tsh ssh mirasaki-development@md01.na01.mirasaki.dev << 'ENDSSH'
+          tsh ssh mirasaki-development@md01.na1.mirasaki.dev << 'ENDSSH'
             cd /home/mirasaki-development/mirasaki/mirasaki-music-bot
             git pull origin main
             docker compose build --no-cache --pull --quiet
